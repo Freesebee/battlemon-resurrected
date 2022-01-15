@@ -4,6 +4,7 @@ import { Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PokemonTableComponent } from './pokemon-table/pokemon-table.component';
 
 const routes: Routes = [
   // { path: 'first-component', component: FirstComponent },
@@ -12,7 +13,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PokemonTableComponent
   ],
   imports: [
     BrowserModule,
