@@ -1,0 +1,28 @@
+{
+    "battlemons": [
+        {
+            "id": "2",
+            "name": "Negachu",
+            "type": "Air",
+            "dmg": "4",
+            "hp": "6",
+            "crit_chance": "0.1"
+        }
+    ],
+    "trainers": [
+        {
+            "id": "9",
+            "name": "Ash Kechup",
+            "gender": "true",
+            "matches_won": "3",
+            "matches_lost": "1",
+            "taunt_text": "GET OVER HERE!"
+        }
+    ],
+    "trainers-battlemons": [
+        {
+            "trainer_id": "9",
+            "battlemon_id": "2"
+        }
+    ]
+}
