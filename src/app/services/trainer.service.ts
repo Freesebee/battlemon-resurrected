@@ -44,17 +44,17 @@ export class TrainerService {
     );
   }
 
-  public CreateTrainer(battlemon: ITrainer): Observable<ITrainer> {
+  public CreateTrainer(trainer: ITrainer): Observable<ITrainer> {
     return this._http.post<ITrainer>(
       this._baseApiUrl + this._trainersApiUrl,
-      battlemon
+      trainer
     );
   }
 
-  public UpdateTrainer(battlemon: ITrainer): Observable<ITrainer> {
+  public UpdateTrainer(trainer: ITrainer): Observable<ITrainer> {
     return this._http.put<ITrainer>(
-      this._baseApiUrl + this._trainersApiUrl,
-      battlemon
+      this._baseApiUrl + this._trainersApiUrl + '/' + trainer.id,
+      trainer
     );
   }
 

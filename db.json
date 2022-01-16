@@ -2,7 +2,7 @@
   "battlemons": [
     {
       "id": 1,
-      "name": "Negachu",
+      "name": "Reggin",
       "type": 2,
       "dmg": 4,
       "hp": 6,
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "name": "ToxicDeveloper",
+      "name": "Buhnrop",
       "dmg": 9,
       "hp": 1,
       "crit_chance": 0.5,
@@ -21,15 +21,7 @@
       "hp": 1,
       "crit_chance": 0.5,
       "id": 3,
-      "name": "Hardcode",
-      "type": 2
-    },
-    {
-      "dmg": 9,
-      "hp": 1,
-      "crit_chance": 0.5,
-      "id": 4,
-      "name": "Hardcode",
+      "name": "Ynnuf",
       "type": 2
     }
   ],
@@ -41,6 +33,14 @@
       "matches_won": 3,
       "matches_lost": 1,
       "taunt_text": "GET OVER HERE!"
+    },
+    {
+      "id": 5,
+      "name": "Misty Williamz",
+      "gender": false,
+      "matches_won": 7,
+      "matches_lost": 3,
+      "taunt_text": "Wake the f up samurai!"
     }
   ],
   "trainers-battlemons": [

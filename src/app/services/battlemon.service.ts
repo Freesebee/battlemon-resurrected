@@ -24,7 +24,7 @@ export class BattlemonService {
   }
 
   public UpdateBattlemon(battlemon: IBattlemon): Observable<IBattlemon> {
-    return this._http.put<IBattlemon>(this._baseApiUrl, battlemon);
+    return this._http.put<IBattlemon>(this._baseApiUrl + '/' + battlemon.id, battlemon);
   }
 
   public DeleteBattlemon(id: number): Observable<IBattlemon> {
