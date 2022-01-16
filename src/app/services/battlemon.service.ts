@@ -20,11 +20,15 @@ export class BattlemonService {
   }
 
   public CreateBattlemon(battlemon: IBattlemon): Observable<IBattlemon> {
+    battlemon.id = 0; //required for json-server to generate id
     return this._http.post<IBattlemon>(this._baseApiUrl, battlemon);
   }
 
   public UpdateBattlemon(battlemon: IBattlemon): Observable<IBattlemon> {
-    return this._http.put<IBattlemon>(this._baseApiUrl + '/' + battlemon.id, battlemon);
+    return this._http.put<IBattlemon>(
+      this._baseApiUrl + '/' + battlemon.id,
+      battlemon
+    );
   }
 
   public DeleteBattlemon(id: number): Observable<IBattlemon> {
