@@ -1,14 +1,6 @@
 <form [formGroup]="createForm" (ngSubmit)="onSubmit(battlemon)">
 
   <div>
-    <label for="id">
-      Id
-    </label>
-    <input id="id" type="number" formControlName="id" required pattern="^[0-9]*$">
-    <span *ngIf="id?.invalid && id?.touched">Id is invalid</span>
-  </div>
-
-  <div>
     <label for="name">
       Name
     </label>

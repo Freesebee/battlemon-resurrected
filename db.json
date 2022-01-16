@@ -1,14 +1,6 @@
 {
   "battlemons": [
     {
-      "id": 1,
-      "name": "Reggin",
-      "type": 2,
-      "dmg": 4,
-      "hp": 6,
-      "crit_chance": 0.1
-    },
-    {
       "id": 2,
       "name": "Buhnrop",
       "dmg": 9,
@@ -23,6 +15,22 @@
       "id": 3,
       "name": "Ynnuf",
       "type": 2
+    },
+    {
+      "id": 4,
+      "name": "dsad",
+      "dmg": 1,
+      "crit_chance": "dsad",
+      "hp": 22,
+      "type": "das"
+    },
+    {
+      "id": 5,
+      "name": "dsad",
+      "dmg": 33,
+      "crit_chance": 3,
+      "hp": 3,
+      "type": "3"
     }
   ],
   "trainers": [
