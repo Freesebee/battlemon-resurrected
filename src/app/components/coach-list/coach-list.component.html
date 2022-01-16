@@ -1,0 +1,19 @@
+<h2>Coach</h2>
+<button (click)="added()">Add coach</button>
+<div *ngFor="let coach of coachs">
+  <h3>{{coach.name}}</h3>
+  <p *ngIf="coach.gender">
+    Gender: {{ coach.gender }}
+  </p>
+  <p *ngIf="coach.taunt_text">
+    taunt_text: {{ coach.taunt_text }}
+  </p>
+  <p *ngIf="coach.matches_won">
+    taunt_text: {{ coach.matches_won }}
+  </p>
+  <p *ngIf="coach.matches_lost">
+    taunt_text: {{ coach.matches_lost}}
+  </p>
+  <button (click)="deleted(coach.id)">Delete</button>
+  <button (click)="edited(coach)">Delete</button>
+</div>

@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListOfBattlemonsComponent } from './components/list-of-battlemons/list-of-battlemons.component';
+import { CoachListComponent } from './components/coach-list/coach-list.component';
+import { CoachFormComponent } from './components/coach-form/coach-form.component';
 
 const routes: Routes = [
   { path: 'battlemons', component: ListOfBattlemonsComponent },
   //{ path: 'yourPath', component: YourComponent },
+  { path: 'coachs', component: CoachListComponent },
+  { path: 'coachs-form', component: CoachFormComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
