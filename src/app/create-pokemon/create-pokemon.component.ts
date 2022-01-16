@@ -26,12 +26,12 @@ export class CreatePokemonComponent implements OnInit {
   });
 
   onSubmit(value: IBattlemon): void {
-    this.battlemon.id = value.id;
-    this.battlemon.name = value.name;
-    this.battlemon.dmg = value.dmg;
-    this.battlemon.crit_chance = value.crit_chance;
-    this.battlemon.hp = value.hp;
-    this.battlemon.type = value.type;
+    this.battlemon.id = this.createForm.get('id')?.value;
+    this.battlemon.name = this.createForm.get('name')?.value
+    this.battlemon.dmg = this.createForm.get('dmg')?.value
+    this.battlemon.crit_chance = this.createForm.get('crit_chance')?.value
+    this.battlemon.hp = this.createForm.get('hp')?.value
+    this.battlemon.type = this.createForm.get('type')?.value
 
     this.newBattlemon.emit(this.battlemon);
     this.createForm.reset();

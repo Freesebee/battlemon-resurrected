@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { CreatePokemonComponent } from '../create-pokemon/create-pokemon.component';
+import IBattlemon from '../interfaces/IBattlemon';
+import { BattlemonService } from 'src/app/services/battlemon.service';
+
 @Component({
   selector: 'app-pokemon-table',
   templateUrl: './pokemon-table.component.html',
@@ -8,7 +11,10 @@ import { CreatePokemonComponent } from '../create-pokemon/create-pokemon.compone
 })
 export class PokemonTableComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,private _battlemonService: BattlemonService) { }
+
+  @Input() battlemons!: IBattlemon[];
+
 
   openCreateDialog(): void {
     const dialogRef = this.dialog.open(CreatePokemonComponent,{
@@ -16,6 +22,19 @@ export class PokemonTableComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    this.onGetAll()
+
+  }
+  onGetAll() {
+    this._battlemonService.GetAllBattlemons().subscribe({
+      next: (result: any) => {
+        console.log(result);
+        this.battlemons = result
+      },
+      error: (error: any) => {
+        console.error(error);
+      },
+    });
   }
 
 }

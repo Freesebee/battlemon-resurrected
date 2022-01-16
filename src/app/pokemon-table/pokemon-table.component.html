@@ -2,37 +2,37 @@
   <div class="pokemons-nav">
     <h1>POKEMONS</h1>
     <div>
-      <button mat-raised-button color="primary" (click)="openCreateDialog()">Add</button>
+      <button mat-raised-button color="primary" (click)="openCreateDialog()">
+        Add
+      </button>
     </div>
   </div>
-
 </nav>
 
 <table>
   <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Name</th>
-        <th scope="col">Type</th>
-        <th scope="col">Dmg</th>
-        <th scope="col">Hp</th>
-        <th scope="col">Crit chance</th>
-        <th scope="col">Operation</th>
-      </tr>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Dmg</th>
+      <th>Hp</th>
+      <th>Crit chance</th>
+      <th>Operation</th>
+    </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>Pikachu</td>
-      <td>Fire</td>
-      <td>15</td>
-      <td>300</td>
-      <td>20</td>
-      <td>
-        <button>Edit</button>
-        <button>Delete</button>
-      </td>
+    <tr *ngFor="let battlemon of battlemons">
+        <td>{{ battlemon.id }}</td>
+        <td>{{ battlemon.name }}</td>
+        <td>{{ battlemon.type }}</td>
+        <td>{{ battlemon.dmg }}</td>
+        <td>{{ battlemon.hp }}</td>
+        <td>{{ battlemon.crit_chance }}</td>
+        <td>
+          <button>Edit</button>
+          <button>Delete</button>
+        </td>
     </tr>
   </tbody>
-
 </table>
