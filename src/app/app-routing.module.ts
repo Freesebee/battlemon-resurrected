@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MenuComponent } from './components/menu/menu.component';
+import { ListOfBattlemonsComponent } from './components/list-of-battlemons/list-of-battlemons.component';
 
 const routes: Routes = [
-  { path: 'menu', component: MenuComponent },
-  // { path: 'duel', component: DuelComponent },
+  { path: 'battlemons', component: ListOfBattlemonsComponent },
 ];
 
 @NgModule({
