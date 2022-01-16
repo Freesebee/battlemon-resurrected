@@ -1,3 +1,9 @@
 <div *ngFor="let battlemon of battlemons">
-    {{ battlemon.name }}
+  {{ battlemon.name }}
+  <button mat-mini-fab color="primary" aria-label="DeleteIcon" (click)="onDelete(battlemon.id)">
+    <mat-icon>delete</mat-icon>
+  </button>
+  <button mat-mini-fab color="primary" aria-label="DeleteIcon" (click)="onUpdate(battlemon)">
+    <mat-icon>edit</mat-icon>
+  </button>
 </div>

@@ -10,7 +10,8 @@ import { BattlemonService } from 'src/app/services/battlemon.service';
 export class ListOfBattlemonsComponent implements OnInit {
 
   battlemons: IBattlemon[] = []
-
+  displayedColumns: string[] = ['Name', 'DMG', 'HP', 'Type'];
+  
   constructor(private _battlemonService: BattlemonService) { }
 
   ngOnInit(): void {
