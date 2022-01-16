@@ -1,28 +1,52 @@
 {
-    "battlemons": [
-        {
-            "id": "2",
-            "name": "Negachu",
-            "type": "Air",
-            "dmg": "4",
-            "hp": "6",
-            "crit_chance": "0.1"
-        }
-    ],
-    "trainers": [
-        {
-            "id": "9",
-            "name": "Ash Kechup",
-            "gender": "true",
-            "matches_won": "3",
-            "matches_lost": "1",
-            "taunt_text": "GET OVER HERE!"
-        }
-    ],
-    "trainers-battlemons": [
-        {
-            "trainer_id": "9",
-            "battlemon_id": "2"
-        }
-    ]
+  "battlemons": [
+    {
+      "id": 1,
+      "name": "Negachu",
+      "type": 2,
+      "dmg": 4,
+      "hp": 6,
+      "crit_chance": 0.1
+    },
+    {
+      "id": 2,
+      "name": "ToxicDeveloper",
+      "dmg": 9,
+      "hp": 1,
+      "crit_chance": 0.5,
+      "type": 2
+    },
+    {
+      "dmg": 9,
+      "hp": 1,
+      "crit_chance": 0.5,
+      "id": 3,
+      "name": "Hardcode",
+      "type": 2
+    },
+    {
+      "dmg": 9,
+      "hp": 1,
+      "crit_chance": 0.5,
+      "id": 4,
+      "name": "Hardcode",
+      "type": 2
+    }
+  ],
+  "trainers": [
+    {
+      "id": 9,
+      "name": "Ash Kechup",
+      "gender": true,
+      "matches_won": 3,
+      "matches_lost": 1,
+      "taunt_text": "GET OVER HERE!"
+    }
+  ],
+  "trainers-battlemons": [
+    {
+      "trainer_id": 9,
+      "battlemon_id": 2
+    }
+  ]
 }
