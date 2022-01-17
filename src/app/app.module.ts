@@ -17,6 +17,10 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ListOfBattlemonsComponent } from './components/list-of-battlemons/list-of-battlemons.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
+import { TrainerAddComponent } from './trainer-add/trainer-add.component';
+import { TrainerEditComponent } from './trainer-edit/trainer-edit.component';
+import { TrainerListComponent } from './trainer-list/trainer-list.component';
+import { ListOfTrainersComponent } from './components/list-of-trainers/list-of-trainers.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -32,7 +36,7 @@ import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
   ],
-  declarations: [AppComponent, ListOfBattlemonsComponent, PokemonTableComponent, CreatePokemonComponent, EditPokemonComponent],
+  declarations: [AppComponent, ListOfBattlemonsComponent, PokemonTableComponent, CreatePokemonComponent, EditPokemonComponent, TrainerAddComponent, TrainerEditComponent, TrainerListComponent, ListOfTrainersComponent],
   exports: [],
   providers: [
   ],
