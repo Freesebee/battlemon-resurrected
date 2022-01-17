@@ -1,1 +1,16 @@
-<p>trainer-add works!</p>
+<form [formGroup]="newForm">
+  <div>
+    <label for="name">Name</label>
+    <input id="name" type="text" [(ngModel)]="info.name" formControlName="name">
+  </div>
+  <div>
+    <label for="gender">Name</label>
+    <input id="gender" type="checkbox" [(ngModel)]="info.gender" formControlName="name">
+  </div>
+  <div>
+    <label for="taunt_text">Name</label>
+    <input id="taunt_text" type="text" [(ngModel)]="info.taunt_text" formControlName="name">
+  </div>
+  <button class="button" mat-raised-button color="warn" (click)="exit()" type="submit" >Close</button>
+  <button class="button" mat-raised-button color="primary" (click)="save()" [disabled]="!newForm.valid" type="submit" >Save</button>
+</form>
