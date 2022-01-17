@@ -17,7 +17,6 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ListOfBattlemonsComponent } from './components/list-of-battlemons/list-of-battlemons.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -31,11 +30,12 @@ import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   declarations: [AppComponent, ListOfBattlemonsComponent, PokemonTableComponent, CreatePokemonComponent, EditPokemonComponent],
   exports: [],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

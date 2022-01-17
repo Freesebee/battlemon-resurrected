@@ -30,9 +30,10 @@
         <td>{{ battlemon.hp }}</td>
         <td>{{ battlemon.crit_chance }}</td>
         <td>
-          <button (click)="openEditDialog(battlemon)">Edit</button>
-          <button (click)="deleteBattlemon(battlemon.id)">Delete</button>
+          <button mat-raised-button color="primary" (click)="openEditDialog(battlemon)">Edit</button>
+          <button mat-raised-button color="primary" (click)="deleteBattlemon(battlemon.id)">Delete</button>
         </td>
     </tr>
   </tbody>
 </table>
+<button class="button" mat-raised-button color="warn" (click)="close()" type="submit" >Close</button>

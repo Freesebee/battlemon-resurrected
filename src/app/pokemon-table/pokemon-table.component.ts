@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { CreatePokemonComponent } from '../create-pokemon/create-pokemon.component';
 import IBattlemon from '../interfaces/IBattlemon';
 import { BattlemonService } from 'src/app/services/battlemon.service';
@@ -12,47 +12,39 @@ import { EditPokemonComponent } from '../edit-pokemon/edit-pokemon.component';
 export class PokemonTableComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
-    private _battlemonService: BattlemonService
+    private _battlemonService: BattlemonService,
+    public dialogRefTable: MatDialogRef<PokemonTableComponent>,
+
   ) {}
 
   @Input() battlemons!: IBattlemon[];
 
   openCreateDialog(battlemon?: IBattlemon): void {
-    // const dialogRef = this.dialog.open(CreatePokemonComponent, {
-    //   width: '640px',
-    //   disableClose: true,
-    // });
+
     const dialogConfig = new MatDialogConfig();
 
-    // if(battlemon == undefined){
     dialogConfig.data = {name: "", type:"", dmg:"", hp:"", crit_chance:""};
-    // }
-    // else{
-    //dialogConfig.data = {name: battlemon.name, type:battlemon.type, dmg:battlemon.dmg, hp:battlemon.hp, crit_chance:battlemon.crit_chance};
-    // }
+
     const dialogRef = this.dialog.open(CreatePokemonComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      this.createNewBattlemon(result);
-      //this.editBattlemon(result);
+      if(!(result == undefined)){
+        this.createNewBattlemon(result);
+      }
 
     });
   }
 
   openEditDialog(battlemon: IBattlemon): void {
-    // const dialogRef = this.dialog.open(CreatePokemonComponent, {
-    //   width: '640px',
-    //   disableClose: true,
-    // });
-    const dialogConfigEdit = new MatDialogConfig();
 
-    dialogConfigEdit.data = {id: battlemon.id, name: battlemon.name, type:battlemon.type, dmg:battlemon.dmg, hp:battlemon.hp, crit_chance:battlemon.crit_chance};
-    const dialogRefEdit = this.dialog.open(EditPokemonComponent, dialogConfigEdit);
+    const dialogConfigTable = new MatDialogConfig();
 
-    dialogRefEdit.afterClosed().subscribe(result => {
+    dialogConfigTable.data = {id: battlemon.id, name: battlemon.name, type:battlemon.type, dmg:battlemon.dmg, hp:battlemon.hp, crit_chance:battlemon.crit_chance};
+    const dialogRefTable = this.dialog.open(EditPokemonComponent, dialogConfigTable);
+
+    dialogRefTable.afterClosed().subscribe(result => {
       console.log(result);
-      //this.createNewBattlemon(result);
       this.editBattlemon(result);
 
     });
@@ -106,5 +98,8 @@ export class PokemonTableComponent implements OnInit {
         console.error(error);
       },
     });
+  }
+  close() {
+    this.dialogRefTable.close();
   }
 }
