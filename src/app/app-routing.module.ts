@@ -4,8 +4,7 @@ import { ListOfBattlemonsComponent } from './components/list-of-battlemons/list-
 
 const routes: Routes = [
   { path: 'battlemons', component: ListOfBattlemonsComponent },
-  { path: 'poke', component: ListOfBattlemonsComponent }
-
+  //{ path: 'yourPath', component: YourComponent },
 ];
 
 @NgModule({
