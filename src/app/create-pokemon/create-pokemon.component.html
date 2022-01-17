@@ -45,5 +45,7 @@
 
   </div>
 
-  <button class="button" (click)="save()" [disabled]="!createForm.valid" type="submit" >Add</button>
+  <button class="button" mat-raised-button color="primary" (click)="save()" [disabled]="!createForm.valid" type="submit" >Add</button>
+  <button class="button" mat-raised-button color="warn" (click)="close()" type="submit" >Close</button>
+
 </form>
