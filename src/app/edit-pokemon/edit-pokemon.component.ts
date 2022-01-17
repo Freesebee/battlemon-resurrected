@@ -64,27 +64,6 @@ export class EditPokemonComponent implements OnInit {
     ],
   });
 
-  onSubmit(value: IBattlemon): void {
-    if (this.battlemon == undefined) {
-      this.battlemon = {
-        id: 0,
-        name: this.editForm.get('name')?.value,
-        dmg: this.editForm.get('dmg')?.value,
-        crit_chance: this.editForm.get('name')?.value,
-        hp: this.editForm.get('hp')?.value,
-        type: this.editForm.get('type')?.value,
-      };
-    } else {
-      this.battlemon.name = this.editForm.get('name')?.value;
-      this.battlemon.dmg = this.editForm.get('dmg')?.value;
-      this.battlemon.crit_chance = this.editForm.get('crit_chance')?.value;
-      this.battlemon.hp = this.editForm.get('hp')?.value;
-      this.battlemon.type = this.editForm.get('type')?.value;
-    }
-    this.newBattlemon.emit(this.battlemon);
-    this.editForm.reset();
-  }
-
   ngOnInit(): void {}
   get id() {
     return this.editForm.get('id');

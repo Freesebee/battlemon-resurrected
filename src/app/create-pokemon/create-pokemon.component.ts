@@ -61,27 +61,6 @@ export class CreatePokemonComponent implements OnInit {
     ],
   });
 
-  onSubmit(value: IBattlemon): void {
-    if (this.battlemon == undefined) {
-      this.battlemon = {
-        id: 0,
-        name: this.createForm.get('name')?.value,
-        dmg: this.createForm.get('dmg')?.value,
-        crit_chance: this.createForm.get('name')?.value,
-        hp: this.createForm.get('hp')?.value,
-        type: this.createForm.get('type')?.value,
-      };
-    } else {
-      this.battlemon.name = this.createForm.get('name')?.value;
-      this.battlemon.dmg = this.createForm.get('dmg')?.value;
-      this.battlemon.crit_chance = this.createForm.get('crit_chance')?.value;
-      this.battlemon.hp = this.createForm.get('hp')?.value;
-      this.battlemon.type = this.createForm.get('type')?.value;
-    }
-    this.newBattlemon.emit(this.battlemon);
-    this.createForm.reset();
-  }
-
   ngOnInit(): void {}
   get id() {
     return this.createForm.get('id');
