@@ -17,6 +17,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ListOfBattlemonsComponent } from './components/list-of-battlemons/list-of-battlemons.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
+import { ClashComponent } from './clash/clash.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -32,7 +33,7 @@ import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
   ],
-  declarations: [AppComponent, ListOfBattlemonsComponent, PokemonTableComponent, CreatePokemonComponent, EditPokemonComponent],
+  declarations: [AppComponent, ListOfBattlemonsComponent, PokemonTableComponent, CreatePokemonComponent, EditPokemonComponent, ClashComponent],
   exports: [],
   providers: [
   ],

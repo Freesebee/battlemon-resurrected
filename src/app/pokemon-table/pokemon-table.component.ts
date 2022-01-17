@@ -102,4 +102,7 @@ export class PokemonTableComponent implements OnInit {
   close() {
     this.dialogRefTable.close();
   }
+  closeClash(battlemon: IBattlemon){
+    this.dialogRefTable.close(battlemon);
+  }
 }
