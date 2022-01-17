@@ -45,12 +45,12 @@ export class TrainerAddComponent implements OnInit {
     return this.newForm.get('gender');
   }
 
-  /*get matches_won() {
+  get matches_won() {
     return this.newForm.get('matches_won');
   }
   get matches_lost() {
     return this.newForm.get('matches_lost');
-  }*/
+  }
   get taunt_text()
   {
     return this.newForm.get('taunt_text');
