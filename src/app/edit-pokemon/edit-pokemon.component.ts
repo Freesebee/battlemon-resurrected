@@ -5,24 +5,27 @@ import { Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 
 
-
 @Component({
-  selector: 'app-create-pokemon',
-  templateUrl: './create-pokemon.component.html',
-  styleUrls: ['./create-pokemon.component.scss'],
+  selector: 'app-edit-pokemon',
+  templateUrl: './edit-pokemon.component.html',
+  styleUrls: ['./edit-pokemon.component.scss']
 })
+export class EditPokemonComponent implements OnInit {
 
-export class CreatePokemonComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
-    public dialogRef: MatDialogRef<CreatePokemonComponent>,
+    public dialogRefEdit: MatDialogRef<EditPokemonComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
     ) {}
 
   @Input() battlemon!: IBattlemon;
   @Output() newBattlemon = new EventEmitter<IBattlemon>();
 
-  createForm = this.formBuilder.group({
+  editForm = this.formBuilder.group({
+    id: [
+      '',
+      [Validators.required],
+    ],
     name: [
       '',
       [Validators.required, Validators.minLength(1), Validators.maxLength(10)],
@@ -65,46 +68,47 @@ export class CreatePokemonComponent implements OnInit {
     if (this.battlemon == undefined) {
       this.battlemon = {
         id: 0,
-        name: this.createForm.get('name')?.value,
-        dmg: this.createForm.get('dmg')?.value,
-        crit_chance: this.createForm.get('name')?.value,
-        hp: this.createForm.get('hp')?.value,
-        type: this.createForm.get('type')?.value,
+        name: this.editForm.get('name')?.value,
+        dmg: this.editForm.get('dmg')?.value,
+        crit_chance: this.editForm.get('name')?.value,
+        hp: this.editForm.get('hp')?.value,
+        type: this.editForm.get('type')?.value,
       };
     } else {
-      this.battlemon.name = this.createForm.get('name')?.value;
-      this.battlemon.dmg = this.createForm.get('dmg')?.value;
-      this.battlemon.crit_chance = this.createForm.get('crit_chance')?.value;
-      this.battlemon.hp = this.createForm.get('hp')?.value;
-      this.battlemon.type = this.createForm.get('type')?.value;
+      this.battlemon.name = this.editForm.get('name')?.value;
+      this.battlemon.dmg = this.editForm.get('dmg')?.value;
+      this.battlemon.crit_chance = this.editForm.get('crit_chance')?.value;
+      this.battlemon.hp = this.editForm.get('hp')?.value;
+      this.battlemon.type = this.editForm.get('type')?.value;
     }
     this.newBattlemon.emit(this.battlemon);
-    this.createForm.reset();
+    this.editForm.reset();
   }
 
   ngOnInit(): void {}
   get id() {
-    return this.createForm.get('id');
+    return this.editForm.get('id');
   }
   get name() {
-    return this.createForm.get('name');
+    return this.editForm.get('name');
   }
   get type() {
-    return this.createForm.get('type');
+    return this.editForm.get('type');
   }
   get dmg() {
-    return this.createForm.get('dmg');
+    return this.editForm.get('dmg');
   }
   get hp() {
-    return this.createForm.get('hp');
+    return this.editForm.get('hp');
   }
   get crit_chance() {
-    return this.createForm.get('crit_chance');
+    return this.editForm.get('crit_chance');
   }
   close() {
-    this.dialogRef.close();
+    this.dialogRefEdit.close();
   }
   save(){
-    this.dialogRef.close(this.createForm.value);
+    this.dialogRefEdit.close(this.editForm.value);
   }
 }
+

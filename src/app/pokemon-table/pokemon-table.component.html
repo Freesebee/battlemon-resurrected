@@ -30,12 +30,9 @@
         <td>{{ battlemon.hp }}</td>
         <td>{{ battlemon.crit_chance }}</td>
         <td>
-          <button (click)="deleteBattlemon(battlemon)">Edit</button>
+          <button (click)="openEditDialog(battlemon)">Edit</button>
           <button (click)="deleteBattlemon(battlemon)">Delete</button>
         </td>
     </tr>
   </tbody>
 </table>
-<app-create-pokemon
-  (newBattlemon)="createNewBattlemon($event)">
-</app-create-pokemon>

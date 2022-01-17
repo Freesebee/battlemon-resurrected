@@ -25,12 +25,36 @@
       "type": "das"
     },
     {
-      "id": 5,
       "name": "dsad",
-      "dmg": 33,
-      "crit_chance": 3,
-      "hp": 3,
-      "type": "3"
+      "type": "das",
+      "dmg": 1,
+      "hp": 22,
+      "crit_chance": 1,
+      "id": 5
+    },
+    {
+      "name": "dsad",
+      "type": "das",
+      "dmg": 1,
+      "hp": 22,
+      "crit_chance": 2,
+      "id": 6
+    },
+    {
+      "name": "dsad",
+      "type": "das",
+      "dmg": 1,
+      "hp": 333,
+      "crit_chance": 2,
+      "id": 7
+    },
+    {
+      "id": 8,
+      "name": "bbbbb",
+      "type": "pppp",
+      "dmg": 1,
+      "hp": 333,
+      "crit_chance": 2
     }
   ],
   "trainers": [

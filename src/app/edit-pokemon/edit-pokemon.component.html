@@ -1,4 +1,11 @@
-<form [formGroup]="createForm">
+<form [formGroup]="editForm">
+
+  <div>
+    <label for="id">
+    </label>
+    <input [hidden]="true" id="id" type="number" [(ngModel)]="data.id" formControlName="id">
+
+  </div>
 
   <div>
     <label for="name">
@@ -45,5 +52,5 @@
 
   </div>
 
-  <button class="button" (click)="save()" [disabled]="!createForm.valid" type="submit" >Add</button>
+  <button class="button" (click)="save()" [disabled]="!editForm.valid" type="submit" >Add</button>
 </form>
