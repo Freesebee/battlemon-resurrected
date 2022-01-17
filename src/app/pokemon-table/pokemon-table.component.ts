@@ -95,11 +95,11 @@ export class PokemonTableComponent implements OnInit {
       },
     });
   }
-  deleteBattlemon(battlemonToDelete: IBattlemon) {
-    this._battlemonService.DeleteBattlemon(battlemonToDelete.id).subscribe({
+  deleteBattlemon(battlemonToDeleteId: number) {
+    this._battlemonService.DeleteBattlemon(battlemonToDeleteId).subscribe({
       next: (result: any) => {
         console.log(result);
-        var index =  this.battlemons.findIndex(x => x.id==result.id);
+        var index =  this.battlemons.findIndex(x => x.id==battlemonToDeleteId);
         this.battlemons.splice(index,1);
       },
       error: (error: any) => {
