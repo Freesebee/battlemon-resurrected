@@ -1,0 +1,56 @@
+<form [formGroup]="editForm">
+
+  <div>
+    <label for="id">
+    </label>
+    <input [hidden]="true" id="id" type="number" [(ngModel)]="data.id" formControlName="id">
+
+  </div>
+
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" [(ngModel)]="data.name" formControlName="name">
+    <span *ngIf="name?.invalid && name?.touched">Name is invalid</span>
+
+  </div>
+
+  <div>
+    <label for="type">
+      Type
+    </label>
+    <input id="type" [(ngModel)]="data.type" type="text" formControlName="type">
+    <span *ngIf="type?.invalid && type?.touched">Type is invalid</span>
+
+  </div>
+
+  <div>
+    <label for="dmg">
+      Dmg
+    </label>
+    <input id="dmg" type="number" [(ngModel)]="data.dmg" formControlName="dmg">
+    <span *ngIf="dmg?.invalid && dmg?.touched">Dmg is invalid</span>
+
+  </div>
+
+  <div>
+    <label for="hp">
+      Hp
+    </label>
+    <input id="hp" [(ngModel)]="data.hp" type="number" formControlName="hp">
+    <span *ngIf="hp?.invalid && hp?.touched">Hp is invalid</span>
+
+  </div>
+
+  <div>
+    <label for="crit_chance">
+      Crit Chance
+    </label>
+    <input id="crit_chance" [(ngModel)]="data.crit_chance" type="number" formControlName="crit_chance">
+    <span *ngIf="crit_chance?.invalid && crit_chance?.touched">Crit Chance is invalid</span>
+
+  </div>
+
+  <button class="button" (click)="save()" [disabled]="!editForm.valid" type="submit" >Edit</button>
+</form>
