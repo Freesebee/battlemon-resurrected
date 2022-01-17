@@ -1,1 +1,17 @@
-<p>trainer-edit works!</p>
+<form [formGroup]="editedForm">
+  <button class="button" (click)="save()" [disabled]="!editedForm.valid" type="submit" >Edit</button>
+  <div>
+    <label for="name">Name: </label>
+    <input id="name" type="text" [(ngModel)]="info.name" formControlName="name">
+    <span *ngIf="name?.invalid && name?.touched">Enter name with 3 to 15 characters</span>
+  </div>
+  <div>
+    <label for="gender">Gender: </label>
+    <input id="gender" type="checkbox" [(ngModel)]="info.gender" formControlName="gender">
+  </div>
+  <div>
+    <label for="taunt_text">Taunt text: </label>
+    <input id="taunt_text" type="text" [(ngModel)]="info.taunt_text" formControlName="taunt_text">
+    <span *ngIf="taunt_text?.invalid && taunt_text?.touched">Enter taunt with 2 to 20 characters</span>
+  </div>
+</form>

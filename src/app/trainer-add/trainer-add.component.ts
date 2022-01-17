@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
 import ITrainer from "../interfaces/ITrainer";
-import {Validator} from "@angular/forms";
+import {Validator, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {FormBuilder} from "@angular/forms";
 
@@ -22,9 +22,9 @@ export class TrainerAddComponent implements OnInit {
   }
 
   newForm = this.formTrainer.group({
-    name: [''],
+    name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
     gender: [''],
-    taunt_text: [''],
+    taunt_text: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
   });
 
   ngOnInit(): void
