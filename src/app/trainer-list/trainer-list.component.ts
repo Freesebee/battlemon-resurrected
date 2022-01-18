@@ -40,11 +40,58 @@ export class TrainerListComponent implements OnInit {
   }
 
   setBattlemonSlot(slot: number, trainerId: number) {
-    const dialogPoks = this.dialog.open(PokemonTableComponent, new MatDialogConfig());
+    const dialogPoks = this.dialog.open(
+      PokemonTableComponent,
+      new MatDialogConfig()
+    );
 
     dialogPoks.afterClosed().subscribe((chosen: IBattlemon) => {
-      const slots = this.trainers.find(t => t.id == trainerId)?.battlemonSlots
-      if(slots) slots[slot] = chosen
+      this.trainerService.GetTrainerBattlemons(trainerId).subscribe({
+        next: (array: ITrainerBattlemon[]) => {
+          const replacedBattlemon = array.find(
+            (b) =>
+              b.id == this.trainers.find((t) => t.id == trainerId)?.battlemonSlots[slot].id
+          );
+
+          if (replacedBattlemon) {
+            this.trainerService
+              .RemoveTrainerBattlemon(replacedBattlemon?.id!)
+              .subscribe({
+                next: () => {
+                  this._addTrainerBattlemonToDB(trainerId, chosen.id);
+                },
+                error: (error: any) => {
+                  console.error(error);
+                },
+              });
+          } else {
+            this._addTrainerBattlemonToDB(trainerId, chosen.id);
+          }
+        },
+        error: (error: any) => {
+          console.error(error);
+        },
+      });
+
+      const slots = this.trainers.find(
+        (t) => t.id == trainerId
+      )?.battlemonSlots;
+      if (slots) slots[slot] = chosen;
+    });
+  }
+
+  _addTrainerBattlemonToDB(trainerId: number, battlemonId: number) {
+    const chosenBattlemon: ITrainerBattlemon = {
+      id: 0,
+      battlemon_id: battlemonId,
+      trainer_id: trainerId,
+    };
+
+    this.trainerService.AddTrainerBattlemon(chosenBattlemon).subscribe({
+      next: () => {},
+      error: (error: any) => {
+        console.error(error);
+      },
     });
   }
 
