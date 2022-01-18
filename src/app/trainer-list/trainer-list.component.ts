@@ -129,6 +129,7 @@ export class TrainerListComponent implements OnInit {
       },
     });
   }
+  
   trainerEdition(editedTrainer: ITrainer) {
     this.trainerService.UpdateTrainer(editedTrainer).subscribe({
       next: (result: any) => {
@@ -158,6 +159,7 @@ export class TrainerListComponent implements OnInit {
   exit() {
     this.dialogPost.close();
   }
+
   closeClash(trainer: ITrainer) {
     this.dialogPost.close(trainer);
   }
@@ -191,12 +193,15 @@ export class TrainerListComponent implements OnInit {
       this.pokemonThreeChoosing(result);
     });
   }
+
   pokemonOneChoosing(battlemon: IBattlemon) {
     this.battlemonOne = battlemon;
   }
+  
   pokemonTwoChoosing(battlemon: IBattlemon) {
     this.battlemonTwo = battlemon;
   }
+  
   pokemonThreeChoosing(battlemon: IBattlemon) {
     this.battlemonThree = battlemon;
   }
