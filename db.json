@@ -48,13 +48,13 @@
       "gender": false,
       "matches_won": 7,
       "matches_lost": 3,
-      "taunt_text": "Wake the f up samurai!"
+      "taunt_text": "Wake the f up"
     },
     {
       "id": 10,
       "name": "Siema",
       "gender": "",
-      "taunt_text": "i tak z Tobą wyg"
+      "taunt_text": "Essa"
     }
   ],
   "trainers-battlemons": [

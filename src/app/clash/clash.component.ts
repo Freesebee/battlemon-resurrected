@@ -20,6 +20,7 @@ export class ClashComponent implements OnInit {
   }
   openTrainerTableDialog1(){
     const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {isClashCall: true};
 
     const dialogRef = this.dialog.open(TrainerListComponent, dialogConfig);
 
@@ -31,6 +32,7 @@ export class ClashComponent implements OnInit {
   };
   openTrainerTableDialog2(){
     const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {isClashCall: true};
 
     const dialogRef = this.dialog.open(TrainerListComponent, dialogConfig);
 

@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import ITrainer from "../interfaces/ITrainer";
 import {TrainerService} from "../services/trainer.service";
-import {MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
+import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {TrainerAddComponent} from "../trainer-add/trainer-add.component";
 import {TrainerEditComponent} from "../trainer-edit/trainer-edit.component";
 import {compileResults} from "@angular/compiler-cli/src/ngtsc/annotations/src/util";
@@ -21,6 +21,8 @@ export class TrainerListComponent implements OnInit {
     private trainerService: TrainerService,
     public dialog: MatDialog,
     public dialogPost: MatDialogRef<TrainerListComponent>,
+    @Inject(MAT_DIALOG_DATA) public data1: any
+
   ) { }
 
   ngOnInit(): void {
