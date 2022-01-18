@@ -98,4 +98,8 @@ export class TrainerListComponent implements OnInit {
   exit() {
     this.dialogPost.close();
   }
+
+  choosePoks() {
+
+  }
 }

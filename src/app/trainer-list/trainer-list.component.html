@@ -14,6 +14,9 @@
       <th>Matches won</th>
       <th>Matches lost</th>
       <th>Taunt text</th>
+      <th>First Pokemon</th>
+      <th>Second Pokemon</th>
+      <th>Third Pokemon</th>
     </tr>
   </thead>
   <tbody>
@@ -24,6 +27,9 @@
       <td>{{trainer.matches_won}}</td>
       <td>{{trainer.matches_lost}}</td>
       <td>{{trainer.taunt_text}}</td>
+      <td><button class="button" mat-raised-button color="primary" (click)="choosePoks()" type="submit">First Pokemon</button></td>
+      <td><button class="button" mat-raised-button color="primary" (click)="choosePoks()" type="submit">Second Pokemon</button></td>
+      <td><button class="button" mat-raised-button color="primary" (click)="choosePoks()" type="submit">Third Pokemon</button></td>
       <td>
         <button mat-raised-button color="primary" (click)="editDialog(trainer)">Edit</button>
       </td>
