@@ -1,12 +1,13 @@
 <nav>
   <div class="trainer-dialog">
     <h1> Trainers </h1>
-    <button mat-raised-button color="primary" (click)="createDialog()"> Add new Trainer</button>
+    <button mat-fab color="primary" (click)="createDialog()"><mat-icon>add</mat-icon></button>
   </div>
 </nav>
 
+
 <div *ngIf="trainers; else emptyList">
-  <table>
+  <table class="mat-elevation-z8">
     <thead>
       <tr>
         <th>Name</th>
@@ -48,16 +49,17 @@
 
         <ng-template #notClashCall>
           <td>
-            <button mat-raised-button color="accent" (click)="editDialog(trainer)">Edit</button>
+            <button mat-fab color="primary" class="button1"" (click)="editDialog(trainer)"><mat-icon> border_color</mat-icon></button>
           </td>
           <td>
-            <button mat-raised-button color="accent" (click)="trainerRemove(trainer.id)">Delete</button>
+            <button mat-fab color="primary" class="button2" (click)="trainerRemove(trainer.id)"><mat-icon>delete</mat-icon></button>
           </td>
         </ng-template>
 
       </tr>
     </tbody>
   </table>
+  <button class="button3" mat-raised-button color="warn" (click)="exit()" type="submit" ><mat-icon>close</mat-icon></button>
 </div>
 <ng-template #emptyList>
   There are no trainers yet
