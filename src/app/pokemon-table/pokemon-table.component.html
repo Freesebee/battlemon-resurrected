@@ -9,34 +9,6 @@
   </div>
 </nav>
 
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Dmg</th>
-      <th>Hp</th>
-      <th>Crit chance</th>
-      <th>Operation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let battlemon of battlemons">
-        <td>{{ battlemon.id }}</td>
-        <td>{{ battlemon.name }}</td>
-        <td>{{ battlemon.type }}</td>
-        <td>{{ battlemon.dmg }}</td>
-        <td>{{ battlemon.hp }}</td>
-        <td>{{ battlemon.crit_chance }}</td>
-        <td>
-          <button mat-raised-button color="primary" (click)="openEditDialog(battlemon)">Edit</button>
-          <button mat-raised-button color="primary" (click)="deleteBattlemon(battlemon.id)">Delete</button>
-        </td>
-    </tr>
-  </tbody>
-</table> -->
-
 <div>
   <table mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="id">

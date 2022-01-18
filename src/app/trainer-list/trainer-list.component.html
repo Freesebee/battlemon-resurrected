@@ -5,40 +5,6 @@
   </div>
 </nav>
 
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Gender</th>
-      <th>Matches won</th>
-      <th>Matches lost</th>
-      <th>Taunt text</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let trainer of trainers">
-      <td>{{trainer.id}}</td>
-      <td>{{trainer.name}}</td>
-      <td>{{trainer.gender}}</td>
-      <td>{{trainer.matches_won}}</td>
-      <td>{{trainer.matches_lost}}</td>
-      <td>{{trainer.taunt_text}}</td>
-      <td>
-        <div *ngIf="data1?.isClashCall; else notClashCall">
-          <button mat-raised-button color="primary" (click)="closeClash(trainer)">Pick Trainer</button>
-        </div>
-        <ng-template #notClashCall>
-          <button mat-raised-button color="primary" (click)="editDialog(trainer)">Edit</button>
-          <button mat-raised-button color="primary" (click)="trainerRemove(trainer.id)">Delete</button>
-        </ng-template>
-
-      </td>
-    </tr>
-  </tbody>
-</table> -->
-
-
 <div>
   <table mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="id">
