@@ -5,36 +5,62 @@
   </div>
 </nav>
 
-<table class="mat-elevation-z8">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Gender</th>
-      <th>Matches won</th>
-      <th>Matches lost</th>
-      <th>Taunt text</th>
-      <th>Operation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let trainer of trainers">
-      <td>{{trainer.id}}</td>
-      <td>{{trainer.name}}</td>
-      <td>{{trainer.gender}}</td>
-      <td>{{trainer.matches_won}}</td>
-      <td>{{trainer.matches_lost}}</td>
-      <td>{{trainer.taunt_text}}</td>
-      <td>
+
+<div *ngIf="trainers; else emptyList">
+  <table class="mat-elevation-z8">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Won</th>
+        <th>Lost</th>
+        <th>Taunt</th>
+        <th>#1 Slot</th>
+        <th>#2 Slot</th>
+        <th>#3 Slot</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trainer of trainers">
+        <td>{{trainer.name}}</td>
+        <td>{{trainer.gender ? 'Male' : 'Female'}}</td>
+        <td>{{trainer.matches_won}}</td>
+        <td>{{trainer.matches_lost}}</td>
+        <td>{{trainer.taunt_text}}</td>
+        <td>
+          <button mat-raised-button [disabled]="data1?.isClashCall" color="primary" (click)="setBattlemonSlot(0, trainer.id)">
+            {{trainer.battlemonSlots[0] ? trainer.battlemonSlots[0].name : 'None'}}
+          </button>
+        </td>
+        <td>
+          <button mat-raised-button [disabled]="data1?.isClashCall" color="primary" (click)="setBattlemonSlot(1, trainer.id)">
+             {{trainer.battlemonSlots[1] ? trainer.battlemonSlots[1].name : 'None'}}
+          </button>
+        </td>
+        <td>
+          <button mat-raised-button [disabled]="data1?.isClashCall" color="primary" (click)="setBattlemonSlot(2, trainer.id)"> 
+            {{trainer.battlemonSlots[2] ? trainer.battlemonSlots[2].name : 'None'}}
+          </button>
+        </td>
+
         <div *ngIf="data1?.isClashCall; else notClashCall">
           <button mat-raised-button color="primary" (click)="closeClash(trainer)">Pick Trainer</button>
         </div>
+
         <ng-template #notClashCall>
-          <button mat-fab color="primary" class="button1" (click)="editDialog(trainer)"><mat-icon> border_color</mat-icon></button>
-          <button mat-fab color="primary" class="button2" (click)="trainerRemove(trainer.id)"><mat-icon>delete</mat-icon></button>
+          <td>
+            <button mat-fab color="primary" class="button1"" (click)="editDialog(trainer)"><mat-icon> border_color</mat-icon></button>
+          </td>
+          <td>
+            <button mat-fab color="primary" class="button2" (click)="trainerRemove(trainer.id)"><mat-icon>delete</mat-icon></button>
+          </td>
         </ng-template>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<button class="button3" mat-raised-button color="warn" (click)="exit()" type="submit" ><mat-icon>close</mat-icon></button>
+
+      </tr>
+    </tbody>
+  </table>
+  <button class="button3" mat-raised-button color="warn" (click)="exit()" type="submit" ><mat-icon>close</mat-icon></button>
+</div>
+<ng-template #emptyList>
+  There are no trainers yet
+</ng-template>

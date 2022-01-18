@@ -25,24 +25,24 @@ export class TrainerService {
     );
   }
 
-  public GetTrainerBattlemons(trainerId: number): Observable<IBattlemon[]> {
-    return this._http.get<IBattlemon[]>(
-      this._baseApiUrl + this._trainersBattlemonsApiUrl + '/' + trainerId
+  public GetTrainerBattlemons(trainerId: number): Observable<ITrainerBattlemon[]> {
+    return this._http.get<ITrainerBattlemon[]>(
+      this._baseApiUrl + this._trainersBattlemonsApiUrl + `?trainer_id=${trainerId}`
     );
   }
 
-  public AddTrainerBattlemon(trainerBattlemon: ITrainerBattlemon) {
+  public AddTrainerBattlemon(trainerBattlemon: ITrainerBattlemon): Observable<ITrainerBattlemon> {
 
     trainerBattlemon.id = 0; //required for json-server to generate id
 
-    return this._http.post(
+    return this._http.post<ITrainerBattlemon>(
       this._baseApiUrl + this._trainersBattlemonsApiUrl,
       trainerBattlemon
     );
   }
 
   public RemoveTrainerBattlemon(id: number) {
-    return this._http.delete(
+    return this._http.delete<ITrainerBattlemon>(
       this._baseApiUrl + this._trainersBattlemonsApiUrl + '/' + id
     );
   }

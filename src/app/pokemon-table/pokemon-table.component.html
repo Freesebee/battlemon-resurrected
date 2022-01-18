@@ -30,8 +30,9 @@
         <td>{{ battlemon.hp }}</td>
         <td>{{ battlemon.crit_chance }}</td>
         <td>
-          <button mat-fab color="primary" class="button1"(click)="openEditDialog(battlemon)"><mat-icon> border_color</mat-icon></button>
-          <button mat-fab color="primary" class="button2"(click)="deleteBattlemon(battlemon.id)"><mat-icon>delete</mat-icon></button>
+          <button mat-fab color="primary" class="button1" (click)="openEditDialog(battlemon)"><mat-icon> border_color</mat-icon></button>
+          <button mat-fab color="primary" class="button2" (click)="deleteBattlemon(battlemon.id)"><mat-icon>delete</mat-icon></button>
+          <button mat-raised-button color="primary" (click)="pokemonChoosing(battlemon)">Pick Pokemon</button>
         </td>
     </tr>
   </tbody>
