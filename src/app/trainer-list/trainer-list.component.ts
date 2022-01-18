@@ -32,6 +32,11 @@ export class TrainerListComponent implements OnInit {
   ngOnInit(): void {
     this.everyTrainers();
   }
+
+  setBattlemonSlot(slot: number, trainerId: number) {
+    
+  }
+
   everyTrainers() {
     this.trainerService.GetAllTrainers().subscribe({
       next: (result:any) => {
@@ -46,7 +51,7 @@ export class TrainerListComponent implements OnInit {
 
   createDialog(trainer?: ITrainer):void {
     const dialogConf = new MatDialogConfig();
-    dialogConf.data = {name: "", gender: "", taunt_text: ""}
+    dialogConf.data = {name: "", gender: true, taunt_text: ""}
 
     const dialogRefernece = this.dialog.open(TrainerAddComponent, dialogConf);
     dialogRefernece.afterClosed().subscribe(result =>{

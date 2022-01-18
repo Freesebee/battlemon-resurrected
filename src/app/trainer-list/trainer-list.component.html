@@ -5,34 +5,36 @@
   </div>
 </nav>
 
+<div *ngIf="trainers; else emptyList">
 <table>
   <thead>
     <tr>
-      <th>Id</th>
       <th>Name</th>
       <th>Gender</th>
-      <th>Matches won</th>
-      <th>Matches lost</th>
-      <th>Taunt text</th>
-      <th>First Pokemon</th>
-      <th>Second Pokemon</th>
-      <th>Third Pokemon</th>
+      <th>Won</th>
+      <th>Lost</th>
+      <th>Taunt</th>
+      <th>#1 Slot</th>
+      <th>#2 Slot</th>
+      <th>#3 Slot</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let trainer of trainers">
-      <td>{{trainer.id}}</td>
       <td>{{trainer.name}}</td>
-      <td>{{trainer.gender}}</td>
+      <td>{{trainer.gender ? 'Male' : 'Female'}}</td>
       <td>{{trainer.matches_won}}</td>
       <td>{{trainer.matches_lost}}</td>
       <td>{{trainer.taunt_text}}</td>
-      <td>{{battlemonOne?.name}}</td>
-      <td>{{battlemonTwo?.name}}</td>
-      <td>{{battlemonThree?.name}}</td>
-      <td><button class="button" mat-raised-button color="primary" (click)="choosePoks()" type="submit">First Pokemon</button></td>
-      <td><button class="button" mat-raised-button color="primary" (click)="choosePoks2()" type="submit">Second Pokemon</button></td>
-      <td><button class="button" mat-raised-button color="primary" (click)="choosePoks3()" type="submit">Third Pokemon</button></td>
+      <td>
+        <button mat-raised-button color="primary" (click)="setBattlemonSlot(0, trainer.id)">Edit</button>
+      </td>
+      <td>
+        <button mat-raised-button color="primary" (click)="setBattlemonSlot(1, trainer.id)">Edit</button>
+      </td>
+      <td>
+        <button mat-raised-button color="primary" (click)="setBattlemonSlot(2, trainer.id)">Edit</button>
+      </td>
       <td>
         <button mat-raised-button color="primary" (click)="editDialog(trainer)">Edit</button>
       </td>
@@ -42,3 +44,7 @@
     </tr>
   </tbody>
 </table>
+</div>
+<ng-template #emptyList>
+  There are no trainers yet
+</ng-template>

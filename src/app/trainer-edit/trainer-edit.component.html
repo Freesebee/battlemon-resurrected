@@ -11,7 +11,9 @@
   </div>
   <div>
     <label for="gender">Gender: </label>
-    <input id="gender" type="checkbox" [(ngModel)]="info.gender" formControlName="gender">
+    Male <input id="gender" type="radio" name="Male" [(ngModel)]="info.gender" [value]="true" formControlName="gender">
+    Female <input id="gender" type="radio" name="Female" [(ngModel)]="info.gender" [value]="false" formControlName="gender">
+    <!-- <input id="gender" type="checkbox" [(ngModel)]="info.gender" formControlName="gender"> -->
   </div>
   <div>
     <label for="taunt_text">Taunt text: </label>
