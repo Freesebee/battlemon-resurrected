@@ -1,4 +1,3 @@
-<div class="container">
 <nav>
   <div class="trainer-dialog">
     <h1> Trainers </h1>
@@ -6,15 +5,16 @@
   </div>
 </nav>
 
-<table>
+<table class="mat-elevation-z8">
   <thead>
     <tr>
       <th>Id</th>
-      <th style="font-style: italic">Name</th>
-      <th style="font-style: italic">Gender</th>
-      <th style="font-style: italic">Matches won</th>
-      <th style="font-style: italic">Matches lost</th>
-      <th style="font-style: italic">Taunt text</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Matches won</th>
+      <th>Matches lost</th>
+      <th>Taunt text</th>
+      <th>Operation</th>
     </tr>
   </thead>
   <tbody>
@@ -30,12 +30,11 @@
           <button mat-raised-button color="primary" (click)="closeClash(trainer)">Pick Trainer</button>
         </div>
         <ng-template #notClashCall>
-          <button mat-fab color="primary" (click)="editDialog(trainer)"><mat-icon> border_color</mat-icon></button>
-          <button mat-fab color="primary" (click)="trainerRemove(trainer.id)"><mat-icon>delete</mat-icon></button>
+          <button mat-fab color="primary" class="button1" (click)="editDialog(trainer)"><mat-icon> border_color</mat-icon></button>
+          <button mat-fab color="primary" class="button2" (click)="trainerRemove(trainer.id)"><mat-icon>delete</mat-icon></button>
         </ng-template>
       </td>
     </tr>
   </tbody>
-  <button class="button" mat-raised-button color="warn" (click)="exit()" type="submit" ><mat-icon>close</mat-icon></button>
 </table>
-</div>
+<button class="button3" mat-raised-button color="warn" (click)="exit()" type="submit" ><mat-icon>close</mat-icon></button>

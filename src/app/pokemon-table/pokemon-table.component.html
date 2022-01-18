@@ -9,7 +9,7 @@
   </div>
 </nav>
 
-<table>
+<table class="mat-elevation-z8">
   <thead>
     <tr>
       <th>Id</th>
@@ -30,10 +30,10 @@
         <td>{{ battlemon.hp }}</td>
         <td>{{ battlemon.crit_chance }}</td>
         <td>
-          <button mat-fab color="primary" (click)="openEditDialog(battlemon)"><mat-icon> border_color</mat-icon></button>
-          <button mat-fab color="primary" (click)="deleteBattlemon(battlemon.id)"><mat-icon>delete</mat-icon></button>
+          <button mat-fab color="primary" class="button1"(click)="openEditDialog(battlemon)"><mat-icon> border_color</mat-icon></button>
+          <button mat-fab color="primary" class="button2"(click)="deleteBattlemon(battlemon.id)"><mat-icon>delete</mat-icon></button>
         </td>
     </tr>
   </tbody>
 </table>
-<button class="button" mat-raised-button color="warn" (click)="close()" type="submit" ><mat-icon>close</mat-icon></button>
+<button class="button3" mat-raised-button color="warn" (click)="close()" type="submit" ><mat-icon>close</mat-icon></button>

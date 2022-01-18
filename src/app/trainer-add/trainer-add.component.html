@@ -1,7 +1,9 @@
 <form [formGroup]="newForm">
   <div>
-    <label style="font-style: italic" for="name">Name: </label>
-    <input id="name" type="text" [(ngModel)]="info.name" formControlName="name">
+    <mat-form-field appearance="legacy">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" id="name" type="text" [(ngModel)]="info.name" formControlName="name">
+    </mat-form-field>
     <span *ngIf="name?.invalid && name?.touched">Enter name with 3 to 15 characters</span>
   </div>
   <div>
@@ -9,8 +11,10 @@
     <input id="gender" type="checkbox" [(ngModel)]="info.gender" formControlName="gender">
   </div>
   <div>
-    <label style="font-style: italic" for="taunt_text">Taunt text: </label>
-    <input id="taunt_text" type="text" [(ngModel)]="info.taunt_text" formControlName="taunt_text">
+    <mat-form-field appearance="legacy">
+      <mat-label>Taunt text</mat-label>
+      <input matInput placeholder="Taunt text" id="taunt_text" type="text" [(ngModel)]="info.taunt_text" formControlName="taunt_text">
+    </mat-form-field>
     <span *ngIf="taunt_text?.invalid && taunt_text?.touched">Enter taunt with 2 to 20 characters</span>
   </div>
 

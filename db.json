@@ -46,14 +46,12 @@
       "id": 5,
       "name": "Misty Williamz",
       "gender": false,
-      "matches_won": 7,
-      "matches_lost": 3,
       "taunt_text": "Wake the f up"
     },
     {
       "id": 10,
       "name": "Siema",
-      "gender": "",
+      "gender": true,
       "taunt_text": "Essa"
     }
   ],
