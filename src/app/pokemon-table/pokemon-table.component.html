@@ -2,8 +2,8 @@
   <div class="pokemons-nav">
     <h1>POKEMONS</h1>
     <div>
-      <button mat-raised-button color="primary" (click)="openCreateDialog()">
-        Add
+      <button mat-fab color="primary" (click)="openCreateDialog()">
+        <mat-icon>add</mat-icon>
       </button>
     </div>
   </div>
@@ -30,10 +30,10 @@
         <td>{{ battlemon.hp }}</td>
         <td>{{ battlemon.crit_chance }}</td>
         <td>
-          <button mat-raised-button color="primary" (click)="openEditDialog(battlemon)">Edit</button>
-          <button mat-raised-button color="primary" (click)="deleteBattlemon(battlemon.id)">Delete</button>
+          <button mat-fab color="primary" (click)="openEditDialog(battlemon)"><mat-icon> border_color</mat-icon></button>
+          <button mat-fab color="primary" (click)="deleteBattlemon(battlemon.id)"><mat-icon>delete</mat-icon></button>
         </td>
     </tr>
   </tbody>
 </table>
-<button class="button" mat-raised-button color="warn" (click)="close()" type="submit" >Close</button>
+<button class="button" mat-raised-button color="warn" (click)="close()" type="submit" ><mat-icon>close</mat-icon></button>
