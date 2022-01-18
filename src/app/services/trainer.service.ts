@@ -25,9 +25,9 @@ export class TrainerService {
     );
   }
 
-  public GetTrainerBattlemons(trainerId: number): Observable<IBattlemon[]> {
-    return this._http.get<IBattlemon[]>(
-      this._baseApiUrl + this._trainersBattlemonsApiUrl + '/' + trainerId
+  public GetTrainerBattlemons(trainerId: number): Observable<ITrainerBattlemon[]> {
+    return this._http.get<ITrainerBattlemon[]>(
+      this._baseApiUrl + this._trainersBattlemonsApiUrl + `?trainer_id=${trainerId}`
     );
   }
 

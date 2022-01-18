@@ -6,44 +6,50 @@
 </nav>
 
 <div *ngIf="trainers; else emptyList">
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Gender</th>
-      <th>Won</th>
-      <th>Lost</th>
-      <th>Taunt</th>
-      <th>#1 Slot</th>
-      <th>#2 Slot</th>
-      <th>#3 Slot</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let trainer of trainers">
-      <td>{{trainer.name}}</td>
-      <td>{{trainer.gender ? 'Male' : 'Female'}}</td>
-      <td>{{trainer.matches_won}}</td>
-      <td>{{trainer.matches_lost}}</td>
-      <td>{{trainer.taunt_text}}</td>
-      <td>
-        <button mat-raised-button color="primary" (click)="setBattlemonSlot(0, trainer.id)">Edit</button>
-      </td>
-      <td>
-        <button mat-raised-button color="primary" (click)="setBattlemonSlot(1, trainer.id)">Edit</button>
-      </td>
-      <td>
-        <button mat-raised-button color="primary" (click)="setBattlemonSlot(2, trainer.id)">Edit</button>
-      </td>
-      <td>
-        <button mat-raised-button color="primary" (click)="editDialog(trainer)">Edit</button>
-      </td>
-      <td>
-        <button mat-raised-button color="primary" (click)="trainerRemove(trainer.id)">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Won</th>
+        <th>Lost</th>
+        <th>Taunt</th>
+        <th>#1 Slot</th>
+        <th>#2 Slot</th>
+        <th>#3 Slot</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trainer of trainers">
+        <td>{{trainer.name}}</td>
+        <td>{{trainer.gender ? 'Male' : 'Female'}}</td>
+        <td>{{trainer.matches_won}}</td>
+        <td>{{trainer.matches_lost}}</td>
+        <td>{{trainer.taunt_text}}</td>
+        <td>
+          <button mat-raised-button color="primary" (click)="setBattlemonSlot(0, trainer.id)">
+            {{trainer.battlemonSlots[0] ? trainer.battlemonSlots[0].name : 'None'}}
+          </button>
+        </td>
+        <td>
+          <button mat-raised-button color="primary" (click)="setBattlemonSlot(1, trainer.id)">
+             {{trainer.battlemonSlots[1] ? trainer.battlemonSlots[1].name : 'None'}}
+          </button>
+        </td>
+        <td>
+          <button mat-raised-button color="primary" (click)="setBattlemonSlot(2, trainer.id)"> 
+            {{trainer.battlemonSlots[2] ? trainer.battlemonSlots[2].name : 'None'}}
+          </button>
+        </td>
+        <td>
+          <button mat-raised-button color="accent" (click)="editDialog(trainer)">Edit</button>
+        </td>
+        <td>
+          <button mat-raised-button color="accent" (click)="trainerRemove(trainer.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <ng-template #emptyList>
   There are no trainers yet
