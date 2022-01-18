@@ -5,18 +5,24 @@
     <input [hidden]="true" id="id" type="number" [(ngModel)]="info.id" formControlName="id">
   </div>
   <div>
-    <label for="name">Name: </label>
-    <input id="name" type="text" [(ngModel)]="info.name" formControlName="name">
+    <mat-form-field appearance="legacy">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" id="name" type="text" [(ngModel)]="info.name" formControlName="name">
+    </mat-form-field>
     <span *ngIf="name?.invalid && name?.touched">Enter name with 3 to 15 characters</span>
   </div>
   <div>
     <label for="gender">Gender: </label>
-    <input id="gender" type="checkbox" [(ngModel)]="info.gender" formControlName="gender">
+    Male <input id="gender" type="radio" name="Male" [(ngModel)]="info.gender" [value]="true" formControlName="gender">
+    Female <input id="gender" type="radio" name="Female" [(ngModel)]="info.gender" [value]="false" formControlName="gender">
+    <!-- <input id="gender" type="checkbox" [(ngModel)]="info.gender" formControlName="gender"> -->
   </div>
   <div>
-    <label for="taunt_text">Taunt text: </label>
-    <input id="taunt_text" type="text" [(ngModel)]="info.taunt_text" formControlName="taunt_text">
+    <mat-form-field appearance="legacy">
+      <mat-label>Taunt text:</mat-label>
+      <input matInput placeholder="Taunt text" id="taunt_text" type="text" [(ngModel)]="info.taunt_text" formControlName="taunt_text">
+    </mat-form-field>
     <span *ngIf="taunt_text?.invalid && taunt_text?.touched">Enter taunt with 2 to 20 characters</span>
   </div>
-  <button class="button" (click)="save()" [disabled]="!editedForm.valid" type="submit" >Edit</button>
+  <button mat-fab color="primary" class="button" (click)="save()" [disabled]="!editedForm.valid" type="submit" ><mat-icon>done_outline</mat-icon></button>
 </form>

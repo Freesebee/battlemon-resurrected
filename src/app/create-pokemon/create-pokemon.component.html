@@ -1,51 +1,46 @@
 <form [formGroup]="createForm">
 
   <div>
-    <label for="name">
-      Name
-    </label>
-    <input id="name" type="text" [(ngModel)]="data.name" formControlName="name">
+    <mat-form-field appearance="legacy">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" id="name" type="text" [(ngModel)]="data.name" formControlName="name">
+    </mat-form-field>
     <span *ngIf="name?.invalid && name?.touched">Name is invalid</span>
-
   </div>
 
   <div>
-    <label for="type">
-      Type
-    </label>
-    <input id="type" [(ngModel)]="data.type" type="text" formControlName="type">
+    <mat-form-field appearance="legacy">
+      <mat-label>Type</mat-label>
+      <input matInput placeholder="Type" id="type" [(ngModel)]="data.type" type="text" formControlName="type">
+    </mat-form-field>
     <span *ngIf="type?.invalid && type?.touched">Type is invalid</span>
-
   </div>
 
   <div>
-    <label for="dmg">
-      Dmg
-    </label>
-    <input id="dmg" type="number" [(ngModel)]="data.dmg" formControlName="dmg">
+    <mat-form-field appearance="legacy">
+      <mat-label>Dmg</mat-label>
+      <input matInput placeholder="Dmg" id="dmg" type="number" [(ngModel)]="data.dmg" formControlName="dmg">
+    </mat-form-field>
     <span *ngIf="dmg?.invalid && dmg?.touched">Dmg is invalid</span>
-
   </div>
 
   <div>
-    <label for="hp">
-      Hp
-    </label>
-    <input id="hp" [(ngModel)]="data.hp" type="number" formControlName="hp">
+    <mat-form-field appearance="legacy">
+      <mat-label>Hp</mat-label>
+      <input matInput placeholder="Hp" id="hp" [(ngModel)]="data.hp" type="number" formControlName="hp">
+    </mat-form-field>
     <span *ngIf="hp?.invalid && hp?.touched">Hp is invalid</span>
-
   </div>
 
   <div>
-    <label for="crit_chance">
-      Crit Chance
-    </label>
-    <input id="crit_chance" [(ngModel)]="data.crit_chance" type="number" formControlName="crit_chance">
+    <mat-form-field appearance="legacy">
+      <mat-label>Critic chance</mat-label>
+      <input matInput placeholder="Critic chance" id="crit_chance" [(ngModel)]="data.crit_chance" type="number" formControlName="crit_chance">
+    </mat-form-field>
     <span *ngIf="crit_chance?.invalid && crit_chance?.touched">Crit Chance is invalid</span>
-
   </div>
 
-  <button class="button" mat-raised-button color="primary" (click)="save()" [disabled]="!createForm.valid" type="submit" >Add</button>
-  <button class="button" mat-raised-button color="warn" (click)="close()" type="submit" >Close</button>
+  <button class="button" mat-raised-button color="primary" (click)="save()" [disabled]="!createForm.valid" type="submit" ><mat-icon> border_color</mat-icon></button>
+  <button class="button" mat-raised-button color="warn" (click)="close()" type="submit" ><mat-icon>close</mat-icon></button>
 
 </form>

@@ -2,8 +2,8 @@
   <div class="pokemons-nav">
     <h1>POKEMONS</h1>
     <div>
-      <button mat-raised-button color="primary" (click)="openCreateDialog()">
-        Add
+      <button mat-fab color="primary" (click)="openCreateDialog()">
+        <mat-icon>add</mat-icon>
       </button>
     </div>
   </div>
@@ -46,9 +46,8 @@
       <td mat-cell *matCellDef="let row">
         <button mat-raised-button color="primary" (click)="openEditDialog(row)">Edit</button>
         <button mat-raised-button color="primary" (click)="deleteBattlemon(row.id)">Delete</button>
-
+        <button mat-raised-button color="primary" (click)="pokemonChoosing(row)">Pick Pokemon</button>
       </td>
-
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="columns"></tr>
     <tr mat-row *matRowDef="let row; columns: columns;"></tr>

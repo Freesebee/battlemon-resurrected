@@ -120,4 +120,8 @@ export class PokemonTableComponent implements OnInit {
   close() {
     this.dialogRefTable.close();
   }
+
+  pokemonChoosing(battlemon: IBattlemon) {
+    this.dialogRefTable.close(battlemon)
+  }
 }

@@ -1,11 +1,12 @@
 <nav>
   <div class="trainer-dialog">
     <h1> Trainers </h1>
-    <button mat-raised-button color="primary" (click)="createDialog()"> Add new Trainer</button>
+    <button mat-fab color="primary" (click)="createDialog()"><mat-icon>add</mat-icon></button>
   </div>
 </nav>
 
-<div>
+
+<div *ngIf="trainers; else emptyList">
   <table mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
@@ -36,18 +37,33 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Taunt</th>
       <td mat-cell *matCellDef="let row">{{row.taunt_text}}</td>
     </ng-container>
+    <ng-container matColumnDef="chose_pokemons">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Choose Pokemons</th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-raised-button [disabled]="data1?.isClashCall" color="primary" (click)="setBattlemonSlot(0, row.id)">
+          {{row.battlemonSlots[0] ? row.battlemonSlots[0].name : 'None'}}
+        </button>
+        <button mat-raised-button [disabled]="data1?.isClashCall" color="primary" (click)="setBattlemonSlot(1, row.id)">
+          {{row.battlemonSlots[1] ? row.battlemonSlots[1].name : 'None'}}
+       </button>
+       <button mat-raised-button [disabled]="data1?.isClashCall" color="primary" (click)="setBattlemonSlot(2, row.id)">
+        {{row.battlemonSlots[2] ? row.battlemonSlots[2].name : 'None'}}
+      </button>
+      </td>
+    </ng-container>
 
     <ng-container matColumnDef="operations">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Operations</th>
       <td mat-cell *matCellDef="let row">
+
         <div *ngIf="data1?.isClashCall; else notClashCall">
           <button mat-raised-button color="primary" (click)="closeClash(row)">Pick Trainer</button>
         </div>
-        <ng-template #notClashCall>
-          <button mat-raised-button color="primary" (click)="editDialog(row)">Edit</button>
-          <button mat-raised-button color="primary" (click)="trainerRemove(row.id)">Delete</button>
-        </ng-template>
 
+        <ng-template #notClashCall>
+          <button mat-fab color="primary" class="button1" (click)="editDialog(row)"><mat-icon> border_color</mat-icon></button>
+          <button mat-fab color="primary" class="button2" (click)="trainerRemove(row.id)"><mat-icon>delete</mat-icon></button>
+        </ng-template>
       </td>
 
     </ng-container>
@@ -55,3 +71,9 @@
     <tr mat-row *matRowDef="let row; columns: columns;"></tr>
   </table>
 </div>
+
+<button class="button3" mat-raised-button color="warn" (click)="exit()" type="submit" ><mat-icon>close</mat-icon></button>
+
+<ng-template #emptyList>
+  There are no trainers yet
+</ng-template>

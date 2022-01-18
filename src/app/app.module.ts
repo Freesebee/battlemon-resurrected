@@ -23,13 +23,15 @@ import { TrainerEditComponent } from './trainer-edit/trainer-edit.component';
 import { TrainerListComponent } from './trainer-list/trainer-list.component';
 import { ListOfTrainersComponent } from './components/list-of-trainers/list-of-trainers.component';
 import { MatSortModule } from '@angular/material/sort';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 @NgModule({
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot([{ path: '', component: MenuComponent }]),
+    RouterModule.forRoot([{path: '', component: MenuComponent}]),
     MatButtonModule,
     MatIconModule,
     MatTableModule,
@@ -37,7 +39,9 @@ import { MatSortModule } from '@angular/material/sort';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatSortModule
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   declarations: [AppComponent, ListOfBattlemonsComponent, PokemonTableComponent, CreatePokemonComponent, EditPokemonComponent, ClashComponent, TrainerAddComponent, TrainerEditComponent, TrainerListComponent, ListOfTrainersComponent],
   exports: [],

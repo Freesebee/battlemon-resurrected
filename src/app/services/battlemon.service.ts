@@ -15,8 +15,8 @@ export class BattlemonService {
     return this._http.get<IBattlemon[]>(this._baseApiUrl);
   }
 
-  public GetBattlemonById(id: number): Observable<IBattlemon[]> {
-    return this._http.get<IBattlemon[]>(this._baseApiUrl + '/' + id);
+  public GetBattlemonById(id: number): Observable<IBattlemon> {
+    return this._http.get<IBattlemon>(this._baseApiUrl + '/' + id);
   }
 
   public CreateBattlemon(battlemon: IBattlemon): Observable<IBattlemon> {
