@@ -4,8 +4,10 @@ import {TrainerService} from "../services/trainer.service";
 import {MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
 import {TrainerAddComponent} from "../trainer-add/trainer-add.component";
 import {TrainerEditComponent} from "../trainer-edit/trainer-edit.component";
+import {PokemonTableComponent} from "../pokemon-table/pokemon-table.component";
 import {compileResults} from "@angular/compiler-cli/src/ngtsc/annotations/src/util";
 import {resolve} from "@angular/compiler-cli";
+import IBattlemon from "../interfaces/IBattlemon";
 
 
 
@@ -17,10 +19,14 @@ import {resolve} from "@angular/compiler-cli";
 export class TrainerListComponent implements OnInit {
 
   @Input() trainers!: ITrainer[]
+  battlemonOne?: IBattlemon;
+  battlemonTwo?: IBattlemon;
+  battlemonThree?: IBattlemon;
   constructor(
     private trainerService: TrainerService,
     public dialog: MatDialog,
     public dialogPost: MatDialogRef<TrainerListComponent>,
+
   ) { }
 
   ngOnInit(): void {
@@ -100,6 +106,35 @@ export class TrainerListComponent implements OnInit {
   }
 
   choosePoks() {
+    const dialogChosePoks = new MatDialogConfig();
+    const dialogPoks = this.dialog.open(PokemonTableComponent, dialogChosePoks)
+    dialogPoks.afterClosed().subscribe(result=>{
+      this.pokemonOneChoosing(result);
+    })
+  }
 
+  choosePoks2() {
+    const dialogChosePoks2 = new MatDialogConfig();
+    const dialogPoks2 = this.dialog.open(PokemonTableComponent, dialogChosePoks2)
+    dialogPoks2.afterClosed().subscribe(result=> {
+      this.pokemonTwoChoosing(result);
+    })
+  }
+
+  choosePoks3() {
+      const dialogChosePoks3 = new MatDialogConfig();
+      const dialogPoks3 = this.dialog.open(PokemonTableComponent, dialogChosePoks3)
+      dialogPoks3.afterClosed().subscribe(result=> {
+        this.pokemonThreeChoosing(result);
+      })
+  }
+  pokemonOneChoosing(battlemon: IBattlemon){
+    this.battlemonOne = battlemon;
+  }
+  pokemonTwoChoosing(battlemon: IBattlemon){
+    this.battlemonTwo = battlemon;
+  }
+  pokemonThreeChoosing(battlemon: IBattlemon){
+    this.battlemonThree = battlemon;
   }
 }
