@@ -5,7 +5,7 @@
   </div>
 </nav>
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Id</th>
@@ -36,4 +36,56 @@
       </td>
     </tr>
   </tbody>
-</table>
+</table> -->
+
+
+<div>
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+      <td mat-cell *matCellDef="let row">{{row.gender}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="matches_won">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Matches won</th>
+      <td mat-cell *matCellDef="let row">{{row.matches_won}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="matches_lost">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Matches lost</th>
+      <td mat-cell *matCellDef="let row">{{row.matches_lost}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="taunt_text">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Taunt</th>
+      <td mat-cell *matCellDef="let row">{{row.taunt_text}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="operations">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Operations</th>
+      <td mat-cell *matCellDef="let row">
+        <div *ngIf="data1?.isClashCall; else notClashCall">
+          <button mat-raised-button color="primary" (click)="closeClash(row)">Pick Trainer</button>
+        </div>
+        <ng-template #notClashCall>
+          <button mat-raised-button color="primary" (click)="editDialog(row)">Edit</button>
+          <button mat-raised-button color="primary" (click)="trainerRemove(row.id)">Delete</button>
+        </ng-template>
+
+      </td>
+
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+  </table>
+</div>

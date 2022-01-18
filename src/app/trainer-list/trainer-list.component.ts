@@ -1,4 +1,4 @@
-import {Component, Inject, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit, ViewChild} from '@angular/core';
 import ITrainer from "../interfaces/ITrainer";
 import {TrainerService} from "../services/trainer.service";
 import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from "@angular/material/dialog";
@@ -6,6 +6,8 @@ import {TrainerAddComponent} from "../trainer-add/trainer-add.component";
 import {TrainerEditComponent} from "../trainer-edit/trainer-edit.component";
 import {compileResults} from "@angular/compiler-cli/src/ngtsc/annotations/src/util";
 import {resolve} from "@angular/compiler-cli";
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 
 
@@ -16,7 +18,12 @@ import {resolve} from "@angular/compiler-cli";
 })
 export class TrainerListComponent implements OnInit {
 
-  @Input() trainers!: ITrainer[]
+  @Input() trainers!: ITrainer[];
+  columns: any[] = ['id','name','gender', 'matches_won', 'matches_lost', 'taunt_text', 'operations' ];
+  dataSource!: MatTableDataSource<ITrainer>;
+
+  @ViewChild(MatSort, {static:true}) sort!: MatSort;
+
   constructor(
     private trainerService: TrainerService,
     public dialog: MatDialog,
@@ -33,6 +40,9 @@ export class TrainerListComponent implements OnInit {
       next: (result:any) => {
         //console.log(result)
         this.trainers = result;
+        this.dataSource = new MatTableDataSource(this.trainers)
+        this.dataSource.sort = this.sort;
+
       },
       error: (error:any) => {
         console.error(error)
@@ -66,6 +76,8 @@ export class TrainerListComponent implements OnInit {
     this.trainerService.CreateTrainer(newTrainer).subscribe({
       next: (result:any) => {
         this.trainers.push(result)
+        this.everyTrainers();
+        
       },
       error: (error:any) => {
         console.error(error);
@@ -77,6 +89,8 @@ export class TrainerListComponent implements OnInit {
       next: (result:any) => {
         const trainerIndex = this.trainers.findIndex(i => i.id == result.id);
         this.trainers[trainerIndex] = result;
+        this.everyTrainers();
+
       },
       error: (error: any) => {
         console.error(error)
@@ -89,6 +103,7 @@ export class TrainerListComponent implements OnInit {
       next: (result: any) => {
         var trainerIndex = this.trainers.findIndex(i => i.id==trainerRemoveId);
         this.trainers.splice(trainerIndex, 1)
+        this.everyTrainers();
 
       },
       error: (error: any) => {

@@ -1,9 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { CreatePokemonComponent } from '../create-pokemon/create-pokemon.component';
 import IBattlemon from '../interfaces/IBattlemon';
 import { BattlemonService } from 'src/app/services/battlemon.service';
 import { EditPokemonComponent } from '../edit-pokemon/edit-pokemon.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+
+
 @Component({
   selector: 'app-pokemon-table',
   templateUrl: './pokemon-table.component.html',
@@ -18,6 +22,11 @@ export class PokemonTableComponent implements OnInit {
   ) {}
 
   @Input() battlemons!: IBattlemon[];
+
+  columns: any[] = ['id','name','type', 'dmg', 'hp', 'crit_chance', 'operations' ];
+  dataSource!: MatTableDataSource<IBattlemon>;
+
+  @ViewChild(MatSort, {static:true}) sort!: MatSort;
 
   openCreateDialog(battlemon?: IBattlemon): void {
 
@@ -58,6 +67,9 @@ export class PokemonTableComponent implements OnInit {
       next: (result: any) => {
         console.log(result);
         this.battlemons = result;
+        this.dataSource = new MatTableDataSource(this.battlemons)
+        this.dataSource.sort = this.sort;
+
       },
       error: (error: any) => {
         console.error(error);
@@ -69,6 +81,8 @@ export class PokemonTableComponent implements OnInit {
       next: (result: any) => {
         console.log(result);
         this.battlemons.push(result);
+        this.onGetAll();
+
       },
       error: (error: any) => {
         console.error(error);
@@ -81,6 +95,8 @@ export class PokemonTableComponent implements OnInit {
         console.log(result);
         var index =  this.battlemons.findIndex(x => x.id==result.id);
         this.battlemons[index] = result;
+        this.onGetAll();
+
       },
       error: (error: any) => {
         console.error(error);
@@ -93,6 +109,8 @@ export class PokemonTableComponent implements OnInit {
         console.log(result);
         var index =  this.battlemons.findIndex(x => x.id==battlemonToDeleteId);
         this.battlemons.splice(index,1);
+        this.onGetAll();
+
       },
       error: (error: any) => {
         console.error(error);
