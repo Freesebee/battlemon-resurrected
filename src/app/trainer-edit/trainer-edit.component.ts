@@ -14,7 +14,7 @@ export class TrainerEditComponent implements OnInit {
   @Output() trainerAdded = new EventEmitter<ITrainer>();
 
   constructor(
-    public dialog: MatDialogRef<TrainerEditComponent>,
+    public dialogEd: MatDialogRef<TrainerEditComponent>,
     private formTrainer: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public info: any
   ) {
@@ -58,12 +58,12 @@ export class TrainerEditComponent implements OnInit {
 
   exit()
   {
-    this.dialog.close()
+    this.dialogEd.close()
   }
 
   save()
   {
-    this.dialog.close(this.editedForm.value)
+    this.dialogEd.close(this.editedForm.value)
   }
 
 

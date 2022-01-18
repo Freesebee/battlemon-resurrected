@@ -73,7 +73,7 @@ export class TrainerListComponent implements OnInit {
   trainerEdition(editedTrainer: ITrainer) {
     this.trainerService.UpdateTrainer(editedTrainer).subscribe({
       next: (result:any) => {
-        var trainerIndex = this.trainers.findIndex(i => i.id==result.id)
+        const trainerIndex = this.trainers.findIndex(i => i.id == result.id);
         this.trainers[trainerIndex] = result;
       },
       error: (error: any) => {

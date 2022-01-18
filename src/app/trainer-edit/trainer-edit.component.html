@@ -1,5 +1,9 @@
 <form [formGroup]="editedForm">
-  <button class="button" (click)="save()" [disabled]="!editedForm.valid" type="submit" >Edit</button>
+  <div>
+    <label for="id">
+    </label>
+    <input [hidden]="true" id="id" type="number" [(ngModel)]="info.id" formControlName="id">
+  </div>
   <div>
     <label for="name">Name: </label>
     <input id="name" type="text" [(ngModel)]="info.name" formControlName="name">
@@ -14,4 +18,5 @@
     <input id="taunt_text" type="text" [(ngModel)]="info.taunt_text" formControlName="taunt_text">
     <span *ngIf="taunt_text?.invalid && taunt_text?.touched">Enter taunt with 2 to 20 characters</span>
   </div>
+  <button class="button" (click)="save()" [disabled]="!editedForm.valid" type="submit" >Edit</button>
 </form>
