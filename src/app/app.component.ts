@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ClashComponent } from './clash/clash.component';
 import { PokemonTableComponent } from './pokemon-table/pokemon-table.component';
 import {TrainerListComponent} from "./trainer-list/trainer-list.component";
 
@@ -24,6 +25,16 @@ export class AppComponent {
       console.log(result);
     });
   };
+  openClashDialog(){
+    const dialogConfig = new MatDialogConfig();
+
+    const dialogRef = this.dialog.open(ClashComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  };
+
 
   openTrainerDialog()
   {

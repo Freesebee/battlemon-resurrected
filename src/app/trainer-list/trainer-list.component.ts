@@ -98,4 +98,7 @@ export class TrainerListComponent implements OnInit {
   exit() {
     this.dialogPost.close();
   }
+  closeClash(trainer: ITrainer){
+    this.dialogPost.close(trainer);
+  }
 }
