@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit, ViewChild } from '@angular/core';
 import ITrainer from '../interfaces/ITrainer';
 import { TrainerService } from '../services/trainer.service';
 import {
@@ -16,6 +16,9 @@ import IBattlemon from '../interfaces/IBattlemon';
 import ITrainerBattlemon from '../interfaces/ITrainerBattlemon';
 import ITrainerWithBattlemons from '../interfaces/ITrainerWithBattlemons';
 import { BattlemonService } from '../services/battlemon.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-trainer-list',
@@ -23,10 +26,17 @@ import { BattlemonService } from '../services/battlemon.service';
   styleUrls: ['./trainer-list.component.scss'],
 })
 export class TrainerListComponent implements OnInit {
+
   @Input() trainers!: ITrainerWithBattlemons[];
+
+  columns: any[] = ['name','gender', 'matches_won', 'matches_lost', 'taunt_text', 'operations','chose_pokemons' ];
+  dataSource!: MatTableDataSource<ITrainerWithBattlemons>;
   battlemonOne?: IBattlemon;
   battlemonTwo?: IBattlemon;
   battlemonThree?: IBattlemon;
+
+  @ViewChild(MatSort, {static:true}) sort!: MatSort;
+
   constructor(
     private trainerService: TrainerService,
     private battlemonService: BattlemonService,
@@ -137,6 +147,9 @@ export class TrainerListComponent implements OnInit {
 
           this.trainers.push(t);
         });
+        this.dataSource = new MatTableDataSource(this.trainers)
+        this.dataSource.sort = this.sort;
+
       },
       error: (error: any) => {
         console.error(error);
@@ -173,8 +186,10 @@ export class TrainerListComponent implements OnInit {
 
   TrainerNewCreation(newTrainer: ITrainer) {
     this.trainerService.CreateTrainer(newTrainer).subscribe({
-      next: (result: any) => {
-        this.trainers.push(result);
+      next: (result:any) => {
+        this.trainers.push(result)
+        this.everyTrainers();
+
       },
       error: (error: any) => {
         console.error(error);
@@ -187,6 +202,8 @@ export class TrainerListComponent implements OnInit {
       next: (result: any) => {
         const trainerIndex = this.trainers.findIndex((i) => i.id == result.id);
         this.trainers[trainerIndex] = result;
+        this.everyTrainers();
+
       },
       error: (error: any) => {
         console.error(error);
@@ -201,6 +218,8 @@ export class TrainerListComponent implements OnInit {
           (i) => i.id == trainerRemoveId
         );
         this.trainers.splice(trainerIndex, 1);
+        this.everyTrainers();
+
       },
       error: (error: any) => {
         console.error(error);
@@ -214,5 +233,10 @@ export class TrainerListComponent implements OnInit {
 
   closeClash(trainer: ITrainer) {
     this.dialogPost.close(trainer);
+  }
+
+  applyFilter(event: any){
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

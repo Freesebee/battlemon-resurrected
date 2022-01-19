@@ -47,6 +47,12 @@
       "name": "Misty Williamz",
       "gender": false,
       "taunt_text": "Wake the f up"
+    },
+    {
+      "id": 10,
+      "name": "SiemaEl",
+      "gender": true,
+      "taunt_text": "Essa"
     }
   ],
   "trainers-battlemons": [
@@ -92,18 +98,48 @@
     },
     {
       "id": 11,
-      "battlemon_id": 5,
-      "trainer_id": 5
+      "battlemon_id": 1,
+      "trainer_id": 9
     },
     {
       "id": 12,
       "battlemon_id": 1,
-      "trainer_id": 5
+      "trainer_id": 9
     },
     {
       "id": 13,
+      "battlemon_id": 1,
+      "trainer_id": 9
+    },
+    {
+      "id": 14,
+      "battlemon_id": 3,
+      "trainer_id": 9
+    },
+    {
+      "id": 15,
+      "battlemon_id": 4,
+      "trainer_id": 9
+    },
+    {
+      "id": 16,
+      "battlemon_id": 1,
+      "trainer_id": 11
+    },
+    {
+      "id": 17,
+      "battlemon_id": 1,
+      "trainer_id": 11
+    },
+    {
+      "id": 18,
+      "battlemon_id": 3,
+      "trainer_id": 11
+    },
+    {
+      "id": 19,
       "battlemon_id": 2,
-      "trainer_id": 10
+      "trainer_id": 11
     }
   ]
 }

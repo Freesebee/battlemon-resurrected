@@ -8,33 +8,50 @@
     </div>
   </div>
 </nav>
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput placeholder="Filtering keyword"(keyup)="applyFilter($event)">
+</mat-form-field>
+<div>
+  <table mat-table [dataSource]="dataSource" matSort>
 
-<table class="mat-elevation-z8">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Dmg</th>
-      <th>Hp</th>
-      <th>Crit chance</th>
-      <th>Operation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let battlemon of battlemons">
-        <td>{{ battlemon.id }}</td>
-        <td>{{ battlemon.name }}</td>
-        <td>{{ battlemon.type }}</td>
-        <td>{{ battlemon.dmg }}</td>
-        <td>{{ battlemon.hp }}</td>
-        <td>{{ battlemon.crit_chance }}</td>
-        <td>
-          <button mat-fab color="primary" class="button1" (click)="openEditDialog(battlemon)"><mat-icon> border_color</mat-icon></button>
-          <button mat-fab color="primary" class="button2" (click)="deleteBattlemon(battlemon.id)"><mat-icon>delete</mat-icon></button>
-          <button mat-raised-button color="primary" (click)="pokemonChoosing(battlemon)">Pick Pokemon</button>
-        </td>
-    </tr>
-  </tbody>
-</table>
-<button class="button3" mat-raised-button color="warn" (click)="close()" type="submit" ><mat-icon>close</mat-icon></button>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+      <td mat-cell *matCellDef="let row">{{row.type}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dmg">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Dmg</th>
+      <td mat-cell *matCellDef="let row">{{row.dmg}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="hp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Hp</th>
+      <td mat-cell *matCellDef="let row">{{row.hp}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="crit_chance">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Crit Chance</th>
+      <td mat-cell *matCellDef="let row">{{row.crit_chance}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="operations">
+      <th mat-header-cell *matHeaderCellDef>Operations</th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-raised-button color="primary" (click)="openEditDialog(row)">Edit</button>
+        <button mat-raised-button color="primary" (click)="deleteBattlemon(row.id)">Delete</button>
+        <button mat-raised-button color="primary" (click)="pokemonChoosing(row)">Pick Pokemon</button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+  </table>
+</div>
+
+
+<button class="button" mat-raised-button color="warn" (click)="close()" type="submit" >Close</button>

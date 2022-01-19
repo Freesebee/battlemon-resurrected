@@ -28,6 +28,8 @@ import { ListOfTrainersComponent } from './components/list-of-trainers/list-of-t
 import { BattleComponent } from './components/battle/battle.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -47,6 +49,7 @@ import { MatInputModule } from '@angular/material/input';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSortModule,
   ],
   declarations: [
     AppComponent,
