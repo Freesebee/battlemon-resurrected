@@ -18,6 +18,7 @@ import ITrainerWithBattlemons from '../interfaces/ITrainerWithBattlemons';
 import { BattlemonService } from '../services/battlemon.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-trainer-list',
@@ -232,5 +233,10 @@ export class TrainerListComponent implements OnInit {
 
   closeClash(trainer: ITrainer) {
     this.dialogPost.close(trainer);
+  }
+
+  applyFilter(event: any){
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
