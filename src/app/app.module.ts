@@ -22,6 +22,7 @@ import { TrainerAddComponent } from './trainer-add/trainer-add.component';
 import { TrainerEditComponent } from './trainer-edit/trainer-edit.component';
 import { TrainerListComponent } from './trainer-list/trainer-list.component';
 import { ListOfTrainersComponent } from './components/list-of-trainers/list-of-trainers.component';
+import { MatSortModule } from '@angular/material/sort';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 @NgModule({
@@ -38,6 +39,7 @@ import {MatInputModule} from "@angular/material/input";
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatSortModule,
     MatFormFieldModule,
     MatInputModule
   ],
