@@ -5,5 +5,5 @@
     <button class="button" mat-raised-button color="primary" (click)="openTrainerTableDialog2()" type="submit">Pick trainer 2</button>
     {{trainer2?.name}}
 </div>
-<button class="button" mat-raised-button color="warn" (click)="close()" type="submit">Close</button>
+<button class="button" mat-raised-button color="warn" (click)="close()" type="submit"><mat-icon>close</mat-icon></button>
 <button class="button" [disabled]="trainer1 == undefined || trainer2 == undefined" mat-raised-button color="primary" (click)="clash()" type="submit">Battle</button>

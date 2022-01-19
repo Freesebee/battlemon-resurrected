@@ -26,6 +26,8 @@ import { TrainerEditComponent } from './trainer-edit/trainer-edit.component';
 import { TrainerListComponent } from './trainer-list/trainer-list.component';
 import { ListOfTrainersComponent } from './components/list-of-trainers/list-of-trainers.component';
 import { BattleComponent } from './components/battle/battle.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   imports: [
     BrowserModule,
@@ -43,6 +45,8 @@ import { BattleComponent } from './components/battle/battle.component';
     MatProgressBarModule,
     MatGridListModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   declarations: [
     AppComponent,

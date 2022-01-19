@@ -31,18 +31,18 @@ export class TrainerService {
     );
   }
 
-  public AddTrainerBattlemon(trainerBattlemon: ITrainerBattlemon) {
+  public AddTrainerBattlemon(trainerBattlemon: ITrainerBattlemon): Observable<ITrainerBattlemon> {
 
     trainerBattlemon.id = 0; //required for json-server to generate id
 
-    return this._http.post(
+    return this._http.post<ITrainerBattlemon>(
       this._baseApiUrl + this._trainersBattlemonsApiUrl,
       trainerBattlemon
     );
   }
 
   public RemoveTrainerBattlemon(id: number) {
-    return this._http.delete(
+    return this._http.delete<ITrainerBattlemon>(
       this._baseApiUrl + this._trainersBattlemonsApiUrl + '/' + id
     );
   }

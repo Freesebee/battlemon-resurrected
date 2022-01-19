@@ -1,14 +1,15 @@
 <h1>Battlemon - Ressurected</h1>
 
-
-<button mat-raised-button color="primary" (click)="openBattlemonTableDialog()">
+<div class="buttons">
+<button class="main" mat-raised-button color="primary" (click)="openBattlemonTableDialog()">
   Pokemons
 </button>
-<button mat-raised-button color="primary" (click)="openClashDialog()">
+<button class="main"  mat-raised-button color="primary" (click)="openClashDialog()">
   Clash
 </button>
-<button mat-raised-button color="primary" (click)="openTrainerDialog()">
+<button class="main" mat-raised-button color="primary" (click)="openTrainerDialog()">
   Trainers
 </button>
+</div>
 
 <router-outlet></router-outlet>
