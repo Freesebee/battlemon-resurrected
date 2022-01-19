@@ -29,6 +29,7 @@ import { BattleComponent } from './components/battle/battle.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
+import { BattleResultComponent } from './components/battle-result/battle-result.component';
 
 @NgModule({
   imports: [
@@ -63,6 +64,7 @@ import { MatSortModule } from '@angular/material/sort';
     TrainerListComponent,
     ListOfTrainersComponent,
     BattleComponent,
+    BattleResultComponent,
   ],
   exports: [],
   providers: [],

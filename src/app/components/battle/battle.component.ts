@@ -7,6 +7,7 @@ import {
 } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ProgressBarMode } from '@angular/material/progress-bar';
 import { ActivatedRoute } from '@angular/router';
 import IBattlemon from 'src/app/interfaces/IBattlemon';
@@ -15,6 +16,7 @@ import ITrainerBattlemon from 'src/app/interfaces/ITrainerBattlemon';
 import ITrainerWithBattlemons from 'src/app/interfaces/ITrainerWithBattlemons';
 import { BattlemonService } from 'src/app/services/battlemon.service';
 import { TrainerService } from 'src/app/services/trainer.service';
+import { BattleResultComponent } from '../battle-result/battle-result.component';
 
 @Component({
   selector: 'app-battle',
@@ -50,7 +52,9 @@ export class BattleComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private trainerService: TrainerService,
-    private battlemonService: BattlemonService
+    private battlemonService: BattlemonService,
+    public dialog: MatDialog,
+
   ) {}
 
   ngOnInit(): void {
@@ -195,7 +199,7 @@ export class BattleComponent implements OnInit {
       }
     } else {
       this.isTrainer1Turn = !this.isTrainer1Turn;
-      
+
       let dmg = this.trainer2?.battlemonSlots[this.tr2ActiveBattlemon].dmg;
       if (
         Math.random() <
@@ -227,6 +231,24 @@ export class BattleComponent implements OnInit {
 
   winMatch(tr1won: boolean) {
     this.worker?.postMessage('stop');
-    throw 'Not Implemeneted -> Requires navigating to results view';
+    //throw 'Not Implemeneted -> Requires navigating to results view';
+    this.openResultDialog(tr1won);
+
+
+
+  }
+
+  openResultDialog(tr1won: boolean): void {
+
+    const dialogConfigTable = new MatDialogConfig();
+    if(tr1won == true)
+      dialogConfigTable.data = {firstWon:tr1won,trainerThatWon:this.trainer1};
+    else
+      dialogConfigTable.data = {firstWon:tr1won,trainerThatWon:this.trainer2};
+    const dialogRefTable = this.dialog.open(BattleResultComponent, dialogConfigTable);
+
+    dialogRefTable.afterClosed().subscribe(result => {
+      console.log(result);
+    });
   }
 }
