@@ -34,7 +34,6 @@ export class TrainerService {
   public AddTrainerBattlemon(trainerBattlemon: ITrainerBattlemon): Observable<ITrainerBattlemon> {
 
     trainerBattlemon.id = 0; //required for json-server to generate id
-
     return this._http.post<ITrainerBattlemon>(
       this._baseApiUrl + this._trainersBattlemonsApiUrl,
       trainerBattlemon
@@ -50,7 +49,8 @@ export class TrainerService {
   public CreateTrainer(trainer: ITrainer): Observable<ITrainer> {
 
     trainer.id = 0; //required for json-server to generate id
-
+    trainer.matches_won = 0;
+    trainer.matches_lost = 0;
     return this._http.post<ITrainer>(
       this._baseApiUrl + this._trainersApiUrl,
       trainer
@@ -58,6 +58,8 @@ export class TrainerService {
   }
 
   public UpdateTrainer(trainer: ITrainer): Observable<ITrainer> {
+    // trainer.matches_won = 0;
+    // trainer.matches_lost = 0;
     return this._http.put<ITrainer>(
       this._baseApiUrl + this._trainersApiUrl + '/' + trainer.id,
       trainer

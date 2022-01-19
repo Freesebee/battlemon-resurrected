@@ -179,6 +179,9 @@ export class TrainerListComponent implements OnInit {
       name: trainer.name,
       gender: trainer.gender,
       taunt_text: trainer.taunt_text,
+      matches_won: trainer.matches_won,
+      matches_lost: trainer.matches_lost,
+
     };
     const dialogRef = this.dialog.open(TrainerEditComponent, dialogueConfig);
 
