@@ -2,19 +2,29 @@
 
 /// <reference lib="webworker" />
 
-async function gameLoop() {//tr1: Trainer, tr2: Trainer
-  console.log("Start");
+let isPlaying = false
+
+async function gameLoop(data: any) {//tr1: Trainer, tr2: Trainer
   
-  while (true) {
+  while (isPlaying) {
     await delay(1000);
-    // console.log("Waited 1s");
+    postMessage('Update');
   }
 }
 
 const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 
 addEventListener('message', ({ data }) => {
-  gameLoop()
-  const response = `worker response to ${data}`;
-  postMessage(response);
+  if(data == 'start') {
+    isPlaying = true
+    console.log("Battle started")
+    gameLoop(data)
+  } else if(data == 'stop') {
+    isPlaying = false
+    console.log("Battle finished")
+  } else {
+    throw "Data isn't a game message"
+  }
+
+  
 });
