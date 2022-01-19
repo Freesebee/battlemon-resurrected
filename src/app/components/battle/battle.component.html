@@ -1,1 +1,50 @@
-<p>battle works!</p>
+<mat-grid-list cols="2" [gutterSize]="'10px'">
+  <mat-grid-tile>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        mat-card-image
+        src="/assets/images/battlemon2.png"
+        alt="Battlemon #1"
+      />
+      <mat-card-content>
+        <p>HP</p>
+      </mat-card-content>
+      <mat-progress-bar
+        class="example-margin"
+        mode="determinate"
+        [value]="trainer1.battlemonSlots[tr1ActiveBattlemon].hp"
+        [bufferValue]="bufferValue"
+      >
+      </mat-progress-bar>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Shiba Inu</mat-card-title>
+          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="/assets/images/battlemon1.png"
+          alt="Battlemon #2"
+        />
+        <mat-card-content>
+          <p>HP</p>
+        </mat-card-content>
+        <mat-progress-bar
+          class="example-margin"
+          mode="determinate"
+          [value]="trainer2.battlemonSlots[tr2ActiveBattlemon].hp"
+          [bufferValue]="bufferValue"
+        >
+        </mat-progress-bar>
+      </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

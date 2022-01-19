@@ -6,3 +6,4 @@
     {{trainer2?.name}}
 </div>
 <button class="button" mat-raised-button color="warn" (click)="close()" type="submit">Close</button>
+<button class="button" [disabled]="trainer1 == undefined || trainer2 == undefined" mat-raised-button color="primary" (click)="clash()" type="submit">Battle</button>

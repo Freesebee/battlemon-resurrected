@@ -19,8 +19,8 @@ export class TrainerService {
     return this._http.get<ITrainer[]>(this._baseApiUrl + this._trainersApiUrl);
   }
 
-  public GetTrainerById(id: number): Observable<ITrainer[]> {
-    return this._http.get<ITrainer[]>(
+  public GetTrainerById(id: number): Observable<ITrainer> {
+    return this._http.get<ITrainer>(
       this._baseApiUrl + this._trainersApiUrl + '/' + id
     );
   }

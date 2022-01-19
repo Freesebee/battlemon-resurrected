@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ClashComponent } from './clash/clash.component';
 import { PokemonTableComponent } from './pokemon-table/pokemon-table.component';
 import {TrainerListComponent} from "./trainer-list/trainer-list.component";
@@ -14,6 +15,7 @@ export class AppComponent {
   constructor(
     public dialog: MatDialog,
     public dialogTrain:MatDialog,
+    private router: Router,
     ){}
 
   openBattlemonTableDialog(){
@@ -31,7 +33,7 @@ export class AppComponent {
     const dialogRef = this.dialog.open(ClashComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      if(result) this.router.navigate(['/battle',result.trainer1?.id, result.trainer2?.id])
     });
   };
 
