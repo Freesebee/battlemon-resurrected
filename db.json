@@ -58,7 +58,7 @@
     },
     {
       "id": 10,
-      "name": "Siema",
+      "name": "SiemaEl",
       "gender": true,
       "taunt_text": "Essa"
     }
@@ -103,6 +103,51 @@
       "id": 10,
       "battlemon_id": 1,
       "trainer_id": 9
+    },
+    {
+      "id": 11,
+      "battlemon_id": 1,
+      "trainer_id": 9
+    },
+    {
+      "id": 12,
+      "battlemon_id": 1,
+      "trainer_id": 9
+    },
+    {
+      "id": 13,
+      "battlemon_id": 1,
+      "trainer_id": 9
+    },
+    {
+      "id": 14,
+      "battlemon_id": 3,
+      "trainer_id": 9
+    },
+    {
+      "id": 15,
+      "battlemon_id": 4,
+      "trainer_id": 9
+    },
+    {
+      "id": 16,
+      "battlemon_id": 1,
+      "trainer_id": 11
+    },
+    {
+      "id": 17,
+      "battlemon_id": 1,
+      "trainer_id": 11
+    },
+    {
+      "id": 18,
+      "battlemon_id": 3,
+      "trainer_id": 11
+    },
+    {
+      "id": 19,
+      "battlemon_id": 2,
+      "trainer_id": 11
     }
   ]
 }

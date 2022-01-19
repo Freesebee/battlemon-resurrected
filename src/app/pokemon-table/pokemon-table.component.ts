@@ -23,7 +23,7 @@ export class PokemonTableComponent implements OnInit {
 
   @Input() battlemons!: IBattlemon[];
 
-  columns: any[] = ['id','name','type', 'dmg', 'hp', 'crit_chance', 'operations' ];
+  columns: any[] = ['name','type', 'dmg', 'hp', 'crit_chance', 'operations' ];
   dataSource!: MatTableDataSource<IBattlemon>;
 
   @ViewChild(MatSort, {static:true}) sort!: MatSort;

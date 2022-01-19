@@ -26,11 +26,10 @@ import { MatSort } from '@angular/material/sort';
 })
 export class TrainerListComponent implements OnInit {
 
-  //@Input() trainers!: ITrainer[];
   @Input() trainers!: ITrainerWithBattlemons[];
 
-  columns: any[] = ['id','name','gender', 'matches_won', 'matches_lost', 'taunt_text', 'operations' ];
-  dataSource!: MatTableDataSource<ITrainer>;
+  columns: any[] = ['name','gender', 'matches_won', 'matches_lost', 'taunt_text', 'operations','chose_pokemons' ];
+  dataSource!: MatTableDataSource<ITrainerWithBattlemons>;
   battlemonOne?: IBattlemon;
   battlemonTwo?: IBattlemon;
   battlemonThree?: IBattlemon;
@@ -149,6 +148,7 @@ export class TrainerListComponent implements OnInit {
         });
         this.dataSource = new MatTableDataSource(this.trainers)
         this.dataSource.sort = this.sort;
+
       },
       error: (error: any) => {
         console.error(error);

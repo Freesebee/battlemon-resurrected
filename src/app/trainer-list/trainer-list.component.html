@@ -5,13 +5,9 @@
   </div>
 </nav>
 
-
-<div *ngIf="trainers; else emptyList">
+<!-- *ngIf="trainers; else emptyList" -->
+<div >
   <table mat-table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-      <td mat-cell *matCellDef="let row">{{row.id}}</td>
-    </ng-container>
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
@@ -38,7 +34,7 @@
       <td mat-cell *matCellDef="let row">{{row.taunt_text}}</td>
     </ng-container>
     <ng-container matColumnDef="chose_pokemons">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Choose Pokemons</th>
+      <th mat-header-cell *matHeaderCellDef>Choose Pokemons</th>
       <td mat-cell *matCellDef="let row">
         <button mat-raised-button [disabled]="data1?.isClashCall" color="primary" (click)="setBattlemonSlot(0, row.id)">
           {{row.battlemonSlots[0] ? row.battlemonSlots[0].name : 'None'}}
@@ -47,13 +43,13 @@
           {{row.battlemonSlots[1] ? row.battlemonSlots[1].name : 'None'}}
        </button>
        <button mat-raised-button [disabled]="data1?.isClashCall" color="primary" (click)="setBattlemonSlot(2, row.id)">
-        {{row.battlemonSlots[2] ? row.battlemonSlots[2].name : 'None'}}
+          {{row.battlemonSlots[2] ? row.battlemonSlots[2].name : 'None'}}
       </button>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="operations">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Operations</th>
+      <th mat-header-cell *matHeaderCellDef>Operations</th>
       <td mat-cell *matCellDef="let row">
 
         <div *ngIf="data1?.isClashCall; else notClashCall">
@@ -74,6 +70,6 @@
 
 <button class="button3" mat-raised-button color="warn" (click)="exit()" type="submit" ><mat-icon>close</mat-icon></button>
 
-<ng-template #emptyList>
+<!-- <ng-template #emptyList>
   There are no trainers yet
-</ng-template>
+</ng-template> -->
