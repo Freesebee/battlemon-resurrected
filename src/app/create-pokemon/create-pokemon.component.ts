@@ -3,8 +3,11 @@ import { FormBuilder } from '@angular/forms';
 import IBattlemon from '../interfaces/IBattlemon';
 import { Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { BattlemonType} from "../enums/BattlemonType";
 
-
+interface TypeOf {
+  type: string;
+}
 
 @Component({
   selector: 'app-create-pokemon',
@@ -13,11 +16,25 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 })
 
 export class CreatePokemonComponent implements OnInit {
+  foods: TypeOf[] = [
+    {type: 'Fire'},
+    {type: 'Water'},
+    {type: 'Air'},
+    {type: 'Ground'}
+  ];
+  //type1 = null;
+  //typeOf = BattlemonType
+  //enumKeys=[];
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<CreatePokemonComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-    ) {}
+    ) {
+    //this.enumKeys = Object.keys(this.typeOf).filter(k=> !isNaN(Number(k)))
+  }
+  //change1(value: string) {
+   // this.type1 = this.typeOf[value];
+ // }
 
   @Input() battlemon!: IBattlemon;
   @Output() newBattlemon = new EventEmitter<IBattlemon>();
@@ -29,7 +46,7 @@ export class CreatePokemonComponent implements OnInit {
     ],
     type: [
       '',
-      [Validators.required, Validators.minLength(1), Validators.maxLength(10)],
+      [Validators.required],
     ],
     dmg: [
       '',
@@ -60,6 +77,7 @@ export class CreatePokemonComponent implements OnInit {
       ],
     ],
   });
+
 
   ngOnInit(): void {}
   get id() {

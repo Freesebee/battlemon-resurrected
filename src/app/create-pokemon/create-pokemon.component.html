@@ -9,11 +9,19 @@
   </div>
 
   <div>
-    <mat-form-field appearance="legacy">
+    <!--<mat-form-field appearance="legacy">
       <mat-label>Type</mat-label>
       <input matInput placeholder="Type" id="type" [(ngModel)]="data.type" type="text" formControlName="type">
     </mat-form-field>
-    <span *ngIf="type?.invalid && type?.touched">Type is invalid</span>
+    <span *ngIf="type?.invalid && type?.touched">Type is invalid</span>-->
+    <mat-form-field appearance="fill">
+      <mat-label>Type</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let food of foods" [value]="food.type">
+          {{food.type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 
   <div>
