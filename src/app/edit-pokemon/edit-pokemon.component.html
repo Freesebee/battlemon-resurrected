@@ -16,10 +16,13 @@
   </div>
 
   <div>
-    <mat-form-field appearance="legacy">
-      <mat-label>Type</mat-label>
-      <input matInput placeholder="Placeholder" id="type" [(ngModel)]="data.type" type="text" formControlName="type">
-    </mat-form-field>
+    <label for="type">Type: </label>
+      Air <input id="type" type="radio" name="Air" [(ngModel)]="data.type" value="Air" formControlName="type">
+      Water <input id="type" type="radio" name="Water" [(ngModel)]="data.type" value="Water" formControlName="type">
+      Ground <input id="type" type="radio" name="Ground" [(ngModel)]="data.type" value="Ground" formControlName="type">
+      Flying <input id="type" type="radio" name="Flying" [(ngModel)]="data.type" value="Flying" formControlName="type">
+      Lightning <input id="type" type="radio" name="Lightning" [(ngModel)]="data.type" value="Lightning" formControlName="type">
+      Fire <input id="type" type="radio" name="Fire" [(ngModel)]="data.type" value="Fire" formControlName="type">
     <span *ngIf="type?.invalid && type?.touched">Type is invalid</span>
   </div>
 
