@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
+import { Component, OnInit, Input, ViewChild, Inject } from '@angular/core';
+import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CreatePokemonComponent } from '../create-pokemon/create-pokemon.component';
 import IBattlemon from '../interfaces/IBattlemon';
 import { BattlemonService } from 'src/app/services/battlemon.service';
@@ -19,6 +19,7 @@ export class PokemonTableComponent implements OnInit {
     public dialog: MatDialog,
     private _battlemonService: BattlemonService,
     public dialogRefTable: MatDialogRef<PokemonTableComponent>,
+    @Inject(MAT_DIALOG_DATA) public data1: any,
 
   ) {}
 
