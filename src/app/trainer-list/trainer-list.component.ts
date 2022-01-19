@@ -50,9 +50,12 @@ export class TrainerListComponent implements OnInit {
   }
 
   setBattlemonSlot(slot: number, trainerId: number) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = { isTrainerCall: true };
+
     const dialogPoks = this.dialog.open(
       PokemonTableComponent,
-      new MatDialogConfig()
+      dialogConfig
     );
 
     dialogPoks.afterClosed().subscribe((chosen: IBattlemon) => {
