@@ -4,41 +4,33 @@
       "id": 1,
       "name": "Pikachu",
       "type": "Lightning",
-      "dmg": 1,
-      "hp": 333,
-      "crit_chance": 2
+      "dmg": 2,
+      "hp": 10,
+      "crit_chance": 0
     },
     {
       "id": 2,
       "name": "Bulbasaur",
       "type": "Water",
-      "dmg": 2,
-      "hp": 20,
-      "crit_chance": 10
+      "dmg": 3,
+      "hp": 9,
+      "crit_chance": 0
     },
     {
       "id": 3,
       "name": "Aerodactyl",
       "type": "Flying",
-      "dmg": 200,
-      "hp": 3000,
-      "crit_chance": 80
+      "dmg": 5,
+      "hp": 7,
+      "crit_chance": 0
     },
     {
       "id": 4,
       "name": "Alakazam",
       "type": "Psychic",
-      "dmg": 100,
-      "hp": 250,
+      "dmg": 10,
+      "hp": 2,
       "crit_chance": 0
-    },
-    {
-      "name": "Test",
-      "type": "Fire",
-      "dmg": 2,
-      "hp": 31,
-      "crit_chance": 1,
-      "id": 5
     }
   ],
   "trainers": [

@@ -1,0 +1,50 @@
+
+<div *ngIf="trainer1 && trainer2&& trainer1.battlemonSlots[tr1ActiveBattlemon] && trainer2.battlemonSlots[tr2ActiveBattlemon]">
+  <mat-grid-list cols="2" [gutterSize]="'10px'">
+    <mat-grid-tile>
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image">#{{tr1ActiveBattlemon+1}}</div>
+          <mat-card-title>{{trainer1.battlemonSlots[tr1ActiveBattlemon].name}}</mat-card-title>
+          <mat-card-subtitle>{{trainer1.battlemonSlots[tr1ActiveBattlemon].type}}</mat-card-subtitle>
+        </mat-card-header>
+        <img
+        mat-card-image
+        src="/assets/images/battlemon2.png"
+        alt="Battlemon #1"
+        />
+        <mat-card-content>
+          <p>HP: {{tr1ActiveBattlemonHp}}/{{trainer1.battlemonSlots[tr1ActiveBattlemon].hp}}</p>
+        </mat-card-content>
+        <mat-progress-bar
+        class="example-margin"
+        [value]="tr1ActiveBattlemonHp * 100 / trainer1.battlemonSlots[tr1ActiveBattlemon].hp"
+        >
+      </mat-progress-bar>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image">#{{tr2ActiveBattlemon+1}}</div>
+        <mat-card-title>{{trainer2.battlemonSlots[tr2ActiveBattlemon].name}}</mat-card-title>
+        <mat-card-subtitle>{{trainer2.battlemonSlots[tr2ActiveBattlemon].type}}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+      mat-card-image
+          src="/assets/images/battlemon1.png"
+          alt="Battlemon #2"
+          />
+          <mat-card-content>
+            <p>HP: {{tr2ActiveBattlemonHp}}/{{trainer2.battlemonSlots[tr2ActiveBattlemon].hp}}</p>
+          </mat-card-content>
+          <mat-progress-bar
+          class="example-margin"
+          [value]="tr2ActiveBattlemonHp * 100 / trainer2.battlemonSlots[tr2ActiveBattlemon].hp"
+          >
+        </mat-progress-bar>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+  
