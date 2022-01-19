@@ -5,6 +5,11 @@
   </div>
 </nav>
 
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput placeholder="Filtering keyword"(keyup)="applyFilter($event)">
+</mat-form-field>
+
 <!-- *ngIf="trainers; else emptyList" -->
 <div >
   <table mat-table [dataSource]="dataSource" matSort>

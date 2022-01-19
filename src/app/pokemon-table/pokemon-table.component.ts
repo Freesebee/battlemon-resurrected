@@ -6,6 +6,7 @@ import { BattlemonService } from 'src/app/services/battlemon.service';
 import { EditPokemonComponent } from '../edit-pokemon/edit-pokemon.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { filter } from 'rxjs';
 
 
 @Component({
@@ -123,5 +124,9 @@ export class PokemonTableComponent implements OnInit {
 
   pokemonChoosing(battlemon: IBattlemon) {
     this.dialogRefTable.close(battlemon)
+  }
+  applyFilter(event: any){
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

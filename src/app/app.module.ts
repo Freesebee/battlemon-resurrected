@@ -41,7 +41,8 @@ import {MatInputModule} from "@angular/material/input";
     BrowserAnimationsModule,
     MatSortModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatFormFieldModule
   ],
   declarations: [AppComponent, ListOfBattlemonsComponent, PokemonTableComponent, CreatePokemonComponent, EditPokemonComponent, ClashComponent, TrainerAddComponent, TrainerEditComponent, TrainerListComponent, ListOfTrainersComponent],
   exports: [],
